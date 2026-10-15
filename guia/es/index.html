@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>formatos-layout — catálogo de formatos de video con avatar</title>
-<meta name="description" content="14 formatos de video con avatar (7 en 16:9 y 7 en 9:16), cada uno con nombre, ejemplo real y un comando ffmpeg para armarlo.">
+<meta name="description" content="20 formatos de video con avatar (8 en 16:9 y 12 en 9:16), cada uno con nombre, ejemplo real y un comando ffmpeg para armarlo.">
 <link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/formatos-layout/guia/">
 <link rel="alternate" hreflang="en" href="https://inematds.github.io/formatos-layout/guia/en/">
 <link rel="alternate" hreflang="es" href="https://inematds.github.io/formatos-layout/guia/es/">
@@ -156,13 +156,13 @@
     <div>
       <span class="chip">Catálogo de layouts de video con avatar</span>
       <h1>Cada video en un <span class="amb">formato</span> con nombre</h1>
-      <p class="lead">14 maneras de combinar presentador y contenido, 7 en 16:9 y 7 en 9:16. Cada una con un ejemplo real y un comando para armarla.</p>
+      <p class="lead">20 maneras de combinar presentador y contenido, 8 en 16:9 y 12 en 9:16. Cada una con un ejemplo real y un comando para armarla.</p>
       <div class="cta">
         <a class="btn" href="#f16">Ver los formatos</a>
         <a class="btn ghost" href="https://github.com/inematds/formatos-layout" target="_blank" rel="noopener">Ver en GitHub</a>
       </div>
     </div>
-    <figure><img src="../assets/banner-es.jpg" alt="Banner Formatos de video: 14 layouts con avatar"></figure>
+    <figure><img src="../assets/banner-es.jpg" alt="Banner Formatos de video: 20 layouts con avatar"></figure>
   </div>
 </header>
 
@@ -177,7 +177,7 @@
   <p class="sub">Hasta ahora cada proyecto tenía su propio layout escondido en el código. Ahora los formatos están en un solo lugar, con nombre, ejemplo y comando.</p>
   <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="../assets/banner-grade-es.jpg" alt="Los formatos: Largo (Ancho), Canto (Esquina), Bolha (Burbuja), Telejornal (Noticiero), Apresentador (Presentador), Documentário (Documental)" loading="lazy" style="width:100%;display:block"></figure>
   <div class="grid g3">
-    <div class="card"><h3>🏷️ Nombre fijo</h3><p>Largo (Ancho), Canto (Esquina), Bolha (Burbuja), Telejornal (Noticiero), Dividido, Apresentador (Presentador), Faixa (Franja), Viral y Documentário (Documental). El nombre se convierte en el pedido.</p></div>
+    <div class="card"><h3>🏷️ Nombre fijo</h3><p>Largo (Ancho), Canto (Esquina), Bolha (Burbuja), Telejornal (Noticiero), Dividido, Apresentador (Presentador), Documentário (Documental), Aula (Clase), Faixa (Franja), Viral, Metade (Mitad), Invertido, Pergunta (Pregunta), Empilhado (Apilado) y Personagem (Personaje). El nombre se convierte en el pedido.</p></div>
     <div class="card"><h3>🎞️ Ejemplo real</h3><p>Cada formato tiene un clip de 10 a 16 segundos armado con un video real (Incendios en la Amazonía, 15/10/2026).</p></div>
     <div class="card"><h3>⚙️ Un comando</h3><p><code>compor.sh</code> arma cualquier formato solo con ffmpeg, sin GPU y sin volver a grabar el avatar.</p></div>
   </div>
@@ -185,7 +185,7 @@
 
 <section id="f16"><div class="wrap">
   <span class="chip">16:9 · horizontal</span>
-  <h2>Los 7 formatos horizontales</h2>
+  <h2>Los 8 formatos horizontales</h2>
   <p class="sub">Para YouTube, clases y explicativos largos. Haz clic para ver el ejemplo.</p>
   <div class="grid g3">
     <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/16x9-largo.jpg" src="../assets/demos/16x9-largo.mp4"></video><div class="t"><h3>Largo · Ancho <span class="tag">largo</span></h3><p>Contenido en los 2/3 de la izquierda y el presentador en una columna a la derecha, con divisor ámbar.</p><p class="uso">Explicativo con muchos gráficos; el rostro siempre visible.</p></div></div>
@@ -195,13 +195,14 @@
     <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/16x9-dividido.jpg" src="../assets/demos/16x9-dividido.mp4"></video><div class="t"><h3>Dividido · Dividido <span class="tag">dividido</span></h3><p>Mitad contenido, mitad presentador, lado a lado.</p><p class="uso">Conversación, comparación, mismo peso entre habla y contenido.</p></div></div>
     <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/16x9-apresentador.jpg" src="../assets/demos/16x9-apresentador.mp4"></video><div class="t"><h3>Apresentador · Presentador <span class="tag">apresentador</span></h3><p>El presentador domina la pantalla y el contenido entra en una tarjeta a la izquierda.</p><p class="uso">Opinión y mensaje personal; el contenido es solo apoyo.</p></div></div>
     <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/16x9-documentario.jpg" src="../assets/demos/16x9-documentario.mp4"></video><div class="t"><h3>Documentário · Documental <span class="tag">documentario</span></h3><p>Solo el contenido con la voz encima; el presentador aparece en los últimos segundos.</p><p class="uso">Narrativa; el rostro solo en el cierre (CTA).</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/16x9-aula.jpg" src="../assets/demos/16x9-aula.mp4"></video><div class="t"><h3>Aula · Clase <span class="tag">aula</span></h3><p>Contenido a pantalla completa y el rostro pequeño en un cuadro ámbar en la esquina superior derecha.</p><p class="uso">Clases y explicativos tranquilos; el rostro no compite con el contenido. Viene de explicavideos.</p></div></div>
   </div>
   <p class="nota">No existe Viral en 16:9. Según la regla del kit de diseño INEMA, el estilo viral es solo para video vertical.</p>
 </div></section>
 
 <section id="f9"><div class="wrap">
   <span class="chip">9:16 · vertical</span>
-  <h2>Los 7 formatos verticales</h2>
+  <h2>Los 12 formatos verticales</h2>
   <p class="sub">Para reels, shorts y TikTok.</p>
   <div class="grid g9">
     <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-faixa.jpg" src="../assets/demos/9x16-faixa.mp4"></video><div class="t"><h3>Faixa · Franja <span class="tag">faixa</span></h3><p>Contenido arriba y el presentador en una franja abajo.</p><p class="uso">Reel explicativo, rostro todo el tiempo.</p></div></div>
@@ -211,6 +212,11 @@
     <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-apresentador.jpg" src="../assets/demos/9x16-apresentador.mp4"></video><div class="t"><h3>Apresentador · Presentador <span class="tag">apresentador</span></h3><p>El presentador grande abajo y el contenido en una tarjeta cuadrada arriba.</p><p class="uso">Comentario personal sobre un dato.</p></div></div>
     <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-viral.jpg" src="../assets/demos/9x16-viral.mp4"></video><div class="t"><h3>Viral · Viral <span class="tag">viral</span></h3><p>Cortes secos cada 2 s entre contenido, presentador y primer plano. Cierra en el presentador.</p><p class="uso">Alta retención. El viral completo (sellos, subtítulos) es el perfil viral de explicavideos.</p></div></div>
     <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-documentario.jpg" src="../assets/demos/9x16-documentario.mp4"></video><div class="t"><h3>Documentário · Documental <span class="tag">documentario</span></h3><p>Solo el contenido con la voz; el presentador aparece en los últimos segundos.</p><p class="uso">Reel narrado, rostro solo en el CTA.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-metade.jpg" src="../assets/demos/9x16-metade.mp4"></video><div class="t"><h3>Metade · Mitad <span class="tag">metade</span></h3><p>Contenido arriba y el avatar grande en la mitad inferior.</p><p class="uso">Reel viral en que la palabra pesa tanto como el contenido. Viene de explicavideos viral.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-invertido.jpg" src="../assets/demos/9x16-invertido.mp4"></video><div class="t"><h3>Invertido · Invertido <span class="tag">invertido</span></h3><p>Avatar arriba y el contenido abajo.</p><p class="uso">Cuando el rostro abre la conversación y el contenido responde. Viene de r7e.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-pergunta.jpg" src="../assets/demos/9x16-pergunta.mp4"></video><div class="t"><h3>Pergunta · Pregunta <span class="tag">pergunta</span></h3><p>Franja grande en el gancho, luego Esquina; en la pregunta el avatar crece en el centro de la pantalla.</p><p class="uso">Radar o noticia que cierra con una pregunta al público. Viene de finviral.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-empilhado.jpg" src="../assets/demos/9x16-empilhado.mp4"></video><div class="t"><h3>Empilhado · Apilado <span class="tag">empilhado</span></h3><p>Tres franjas: contenido arriba, avatar en el medio y otro contenido abajo.</p><p class="uso">Promo con titular arriba y texto o video abajo. Viene de promoavatar.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-personagem.jpg" src="../assets/demos/9x16-personagem.mp4"></video><div class="t"><h3>Personagem · Personaje <span class="tag">personagem</span></h3><p>El personaje ocupa todo el video, sin contenido aparte.</p><p class="uso">UGC, testimonio, personaje de IA hablando directo. Viene de ugc-agente.</p></div></div>
   </div>
 </div></section>
 
@@ -229,6 +235,7 @@
       <tr><td><img class="h" src="../assets/tabela/16x9-dividido.jpg" alt="Dividido 16:9" loading="lazy"></td><td class="n">Dividido<small>dividido</small></td><td>mitad derecha de la pantalla</td><td>960×1080 (1/2)</td><td>todo el video</td></tr>
       <tr><td><img class="h" src="../assets/tabela/16x9-apresentador.jpg" alt="Apresentador · Presentador 16:9" loading="lazy"></td><td class="n">Apresentador · Presentador<small>apresentador</small></td><td>pantalla completa al fondo, desplazado a la derecha; contenido en una tarjeta a la izquierda</td><td>1920×1080 (tarjeta 1040×585)</td><td>todo el video</td></tr>
       <tr><td><img class="h2" src="../assets/tabela/16x9-documentario.jpg" alt="Documentário · Documental 16:9" loading="lazy"></td><td class="n">Documentário · Documental<small>documentario</small></td><td>pantalla completa, solo en el cierre</td><td>1920×1080</td><td>solo en los últimos segundos (por defecto 6 s, --fim)</td></tr>
+      <tr><td><img class="h" src="../assets/tabela/16x9-aula.jpg" alt="Aula · Clase 16:9" loading="lazy"></td><td class="n">Aula · Clase<small>aula</small></td><td>cuadro ámbar pequeño en la esquina SUPERIOR derecha, sobre el contenido</td><td>406×228</td><td>todo el video</td></tr>
       <tr class="asp"><td colspan="5">9:16</td></tr>
       <tr><td><img class="v" src="../assets/tabela/9x16-faixa.jpg" alt="Faixa · Franja 9:16" loading="lazy"></td><td class="n">Faixa · Franja<small>faixa</small></td><td>franja horizontal abajo, debajo del contenido</td><td>1080×608</td><td>todo el video</td></tr>
       <tr><td><img class="v" src="../assets/tabela/9x16-canto.jpg" alt="Canto · Esquina 9:16" loading="lazy"></td><td class="n">Canto · Esquina<small>canto</small></td><td>cuadro ámbar abajo a la derecha, sobre el contenido</td><td>400×453</td><td>todo el video</td></tr>
@@ -237,6 +244,11 @@
       <tr><td><img class="v" src="../assets/tabela/9x16-apresentador.jpg" alt="Apresentador · Presentador 9:16" loading="lazy"></td><td class="n">Apresentador · Presentador<small>apresentador</small></td><td>mitad inferior, grande; contenido en una tarjeta cuadrada arriba</td><td>1080×1215 (tarjeta 620×620)</td><td>todo el video</td></tr>
       <tr><td><img class="v2" src="../assets/tabela/9x16-viral.jpg" alt="Viral 9:16" loading="lazy"></td><td class="n">Viral<small>viral</small></td><td>pantalla completa, alternando con el contenido (normal y primer plano)</td><td>1080×1920</td><td>cada 2 s (contenido → avatar → contenido → primer plano); los últimos 5 s completos</td></tr>
       <tr><td><img class="v2" src="../assets/tabela/9x16-documentario.jpg" alt="Documentário · Documental 9:16" loading="lazy"></td><td class="n">Documentário · Documental<small>documentario</small></td><td>pantalla completa, solo en el cierre</td><td>1080×1920</td><td>solo en los últimos segundos (por defecto 6 s, --fim)</td></tr>
+      <tr><td><img class="v" src="../assets/tabela/9x16-metade.jpg" alt="Metade · Mitad 9:16" loading="lazy"></td><td class="n">Metade · Mitad<small>metade</small></td><td>mitad inferior de la pantalla, debajo del contenido</td><td>1080×770</td><td>todo el video</td></tr>
+      <tr><td><img class="v" src="../assets/tabela/9x16-invertido.jpg" alt="Invertido 9:16" loading="lazy"></td><td class="n">Invertido<small>invertido</small></td><td>parte superior de la pantalla, con el contenido abajo</td><td>1080×880</td><td>todo el video</td></tr>
+      <tr><td><img class="v2" src="../assets/tabela/9x16-pergunta.jpg" alt="Pergunta · Pregunta 9:16" loading="lazy"></td><td class="n">Pergunta · Pregunta<small>pergunta</small></td><td>franja abajo en el gancho → cuadro en la esquina → grande en el centro en la pregunta</td><td>1080×720 → 400×453 → 1080×608</td><td>todo el video, cambiando de lugar (gancho: --gancho; pregunta: --trechos)</td></tr>
+      <tr><td><img class="v" src="../assets/tabela/9x16-empilhado.jpg" alt="Empilhado · Apilado 9:16" loading="lazy"></td><td class="n">Empilhado · Apilado<small>empilhado</small></td><td>franja del medio, entre dos bloques de contenido</td><td>1080×608</td><td>todo el video</td></tr>
+      <tr><td><img class="v" src="../assets/tabela/9x16-personagem.jpg" alt="Personagem · Personaje 9:16" loading="lazy"></td><td class="n">Personagem · Personaje<small>personagem</small></td><td>pantalla completa, sin contenido aparte</td><td>1080×1920</td><td>todo el video</td></tr>
     </tbody>
   </table></div>
 </div></section>
@@ -244,21 +256,21 @@
 <section id="projetos"><div class="wrap">
   <span class="chip">Proyectos</span>
   <h2>Qué formatos usa cada proyecto</h2>
-  <p class="sub">Relevamiento en el código de los proyectos de video de INEMA (15/10/2026). Con <b>*</b>, una variante que solo existe en ese proyecto y todavía no tiene nombre en el catálogo.</p>
+  <p class="sub">Relevamiento en el código de los proyectos de video de INEMA (15/10/2026). Las variantes que eran de un solo proyecto ganaron nombre en el catálogo: Aula, Metade, Invertido, Pergunta, Empilhado y Personagem.</p>
   <div class="tab-wrap"><table class="tab">
     <thead><tr><th>Proyecto</th><th>Aspecto</th><th>Formatos</th><th>Cómo los usa</th></tr></thead>
     <tbody>
-      <tr><td class="n">explicavideos</td><td class="asp">16:9 · 9:16</td><td class="fmts">Canto · Dividido · Faixa · <i>Clase*</i> · <i>Media pantalla*</i></td><td>Clase 16:9: rostro pequeño (406×228) en la esquina superior derecha*. Viral 16:9: Esquina, que crece a Dividido en los tramos de rostro. 9:16 simple: Franja. 9:16 viral: avatar en la mitad inferior*; con <code>avatar_916: pip</code> pasa a Esquina.</td></tr>
+      <tr><td class="n">explicavideos</td><td class="asp">16:9 · 9:16</td><td class="fmts">Canto · Dividido · Faixa · Aula · Metade</td><td>Clase 16:9: rostro pequeño (406×228) en la esquina superior derecha. Viral 16:9: Esquina, que crece a Dividido en los tramos de rostro. 9:16 simple: Franja. 9:16 viral: avatar en la mitad inferior; con <code>avatar_916: pip</code> pasa a Esquina.</td></tr>
       <tr><td class="n">refazvideo</td><td class="asp">16:9 · 9:16</td><td class="fmts">los mismos de explicavideos</td><td>Usa el motor de explicavideos (clase o viral).</td></tr>
       <tr><td class="n">eventosextremospub</td><td class="asp">9:16 · 16:9</td><td class="fmts">Faixa · Canto</td><td>9:16: Franja o Esquina (<code>LAYOUT=faixa</code> / <code>canto</code>). 16:9 con avatar: Esquina, al estilo del explicavideos viral (decisión del 15/10/2026); Ancho dejó de usarse.</td></tr>
-      <tr><td class="n">reel7etapas (r7e)</td><td class="asp">9:16</td><td class="fmts">Canto · Apresentador · Faixa · Bolha · <i>Invertido*</i></td><td>Por defecto <code>abre</code>: avatar abierto en la portada y luego Esquina. <code>quadro</code> ≈ Presentador, <code>dividido</code> ≈ Franja, <code>circulo</code> ≈ Burbuja centrada, <code>invertido</code>: avatar arriba e imagen abajo*.</td></tr>
-      <tr><td class="n">finviral · saudeviral · advviral</td><td class="asp">9:16 · 16:9</td><td class="fmts">Faixa → Canto · <i>Pregunta*</i> · Canto</td><td>Mismo motor en los tres. 9:16: Franja en el gancho, luego Esquina; en la pregunta el avatar crece a 1080×600 en el centro*. 16:9 (largo del fin de semana): Esquina arriba a la derecha.</td></tr>
-      <tr><td class="n">promoavatar · promoavatar2 · promoavatar3</td><td class="asp">9:16</td><td class="fmts">Faixa · Canto · <i>Apilado*</i></td><td><code>empilhado</code>: 3 franjas, avatar en el medio*. <code>diptico</code>: imagen arriba y avatar abajo, mitad y mitad (≈ Franja). <code>imagem-plena</code>: Esquina arriba a la derecha.</td></tr>
+      <tr><td class="n">reel7etapas (r7e)</td><td class="asp">9:16</td><td class="fmts">Canto · Apresentador · Faixa · Bolha · Invertido</td><td>Por defecto <code>abre</code>: avatar abierto en la portada y luego Esquina. <code>quadro</code> ≈ Presentador, <code>dividido</code> ≈ Franja, <code>circulo</code> ≈ Burbuja centrada, <code>invertido</code>: avatar arriba e imagen abajo.</td></tr>
+      <tr><td class="n">finviral · saudeviral · advviral</td><td class="asp">9:16 · 16:9</td><td class="fmts">Faixa → Canto · Pergunta · Canto</td><td>Mismo motor en los tres. 9:16: Franja en el gancho, luego Esquina; en la pregunta el avatar crece a 1080×600 en el centro. 16:9 (largo del fin de semana): Esquina arriba a la derecha.</td></tr>
+      <tr><td class="n">promoavatar · promoavatar2 · promoavatar3</td><td class="asp">9:16</td><td class="fmts">Faixa · Canto · Empilhado</td><td><code>empilhado</code>: 3 franjas, avatar en el medio. <code>diptico</code>: imagen arriba y avatar abajo, mitad y mitad (≈ Franja). <code>imagem-plena</code>: Esquina arriba a la derecha.</td></tr>
       <tr><td class="n">reelcomenta</td><td class="asp">9:16</td><td class="fmts">Canto</td><td>El reel original a pantalla completa y el avatar en el cuadro ámbar abajo a la derecha.</td></tr>
       <tr><td class="n">docflow</td><td class="asp">16:9</td><td class="fmts">Telejornal · Documentário</td><td>Estilo <code>historia-apresentador</code>: el avatar toma la pantalla y alterna con los visuales (Noticiero). Los demás estilos son solo voz sobre imágenes, sin rostro.</td></tr>
       <tr><td class="n">makeshorts</td><td class="asp">9:16</td><td class="fmts">Faixa</td><td>Tema arriba y rostro o avatar abajo, mitad y mitad. El avatar es opcional (<code>MS_AVATAR=heygen</code>).</td></tr>
       <tr><td class="n">reel-edita-inematds</td><td class="asp">9:16</td><td class="fmts">Viral</td><td>Rostro grabado de verdad (no avatar): pantalla completa, PiP en la esquina izquierda o pantalla dividida, según el momento.</td></tr>
-      <tr><td class="n">ugc-agente</td><td class="asp">9:16</td><td class="fmts"><i>Personaje*</i></td><td>Un personaje de IA (Kling + lipsync) ocupa todo el video; no es Nei y no hay contenido aparte*.</td></tr>
+      <tr><td class="n">ugc-agente</td><td class="asp">9:16</td><td class="fmts">Personagem</td><td>Un personaje de IA (Kling + lipsync) ocupa todo el video; no es Nei y no hay contenido aparte.</td></tr>
       <tr><td class="n">cardshorts · videos-explicativos · video-explicativo · aventurasinemavideo · timesmkt3</td><td class="asp">9:16 · 16:9 · 1:1</td><td class="fmts">Documentário (sin rostro)</td><td>Sin avatar: solo la voz (Nei clonado o TTS) sobre tarjetas, escenas animadas, fotos o anuncios.</td></tr>
     </tbody>
   </table></div>
@@ -337,7 +349,7 @@ cena.mp4  avatar.mp4</pre></div>
   <span class="chip">Roadmap</span>
   <h2>Hacia dónde va</h2>
   <p class="sub">Lo que existe hoy y lo que viene después.</p>
-  <div class="phase"><div class="tag">Hecho</div><div class="d"><strong>14 formatos + compor.sh</strong><span>7 en 16:9, 7 en 9:16, con ejemplos reales y catálogo en FORMATOS.md (en portugués).</span></div></div>
+  <div class="phase"><div class="tag">Hecho</div><div class="d"><strong>20 formatos + compor.sh</strong><span>8 en 16:9, 12 en 9:16, con ejemplos reales y catálogo en FORMATOS.md (en portugués).</span></div></div>
   <div class="phase"><div class="tag">Próximo</div><div class="d"><strong>Usarlos en los proyectos de video</strong><span>Los motores de video de INEMA (eventosextremospub, explicavideos, docflow) pasan a aceptar el nombre del formato.</span></div></div>
   <div class="phase"><div class="tag">Después</div><div class="d"><strong>Más formatos</strong><span>Los nuevos layouts entran al catálogo con nombre, ejemplo y comando, en los dos aspectos cuando tenga sentido.</span></div></div>
 </div></section>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>formatos-layout — catalog of avatar video formats</title>
-<meta name="description" content="14 avatar video formats (7 in 16:9 and 7 in 9:16), each with a name, a real example and an ffmpeg command to build it.">
+<meta name="description" content="20 avatar video formats (8 in 16:9 and 12 in 9:16), each with a name, a real example and an ffmpeg command to build it.">
 <link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/formatos-layout/guia/">
 <link rel="alternate" hreflang="en" href="https://inematds.github.io/formatos-layout/guia/en/">
 <link rel="alternate" hreflang="es" href="https://inematds.github.io/formatos-layout/guia/es/">
@@ -156,7 +156,7 @@
     <div>
       <span class="chip">Catalog of avatar video layouts</span>
       <h1>Every video in a named <span class="amb">format</span></h1>
-      <p class="lead">14 ways to combine presenter and content, 7 in 16:9 and 7 in 9:16. Each one with a real example and a command to build it.</p>
+      <p class="lead">20 ways to combine presenter and content, 8 in 16:9 and 12 in 9:16. Each one with a real example and a command to build it.</p>
       <div class="cta">
         <a class="btn" href="#f16">See the formats</a>
         <a class="btn ghost" href="https://github.com/inematds/formatos-layout" target="_blank" rel="noopener">View on GitHub</a>
@@ -177,7 +177,7 @@
   <p class="sub">Until now each project had its own layout hidden in the code. Now the formats live in one place, with a name, an example and a command.</p>
   <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="../assets/banner-grade-en.jpg" alt="The formats: Largo (Wide), Canto (Corner), Bolha (Bubble), Telejornal (Newscast), Apresentador (Presenter), Documentário (Documentary)" loading="lazy" style="width:100%;display:block"></figure>
   <div class="grid g3">
-    <div class="card"><h3>🏷️ Fixed name</h3><p>Largo (Wide), Canto (Corner), Bolha (Bubble), Telejornal (Newscast), Dividido (Split), Apresentador (Presenter), Faixa (Strip), Viral and Documentário (Documentary). The name becomes the request.</p></div>
+    <div class="card"><h3>🏷️ Fixed name</h3><p>Largo (Wide), Canto (Corner), Bolha (Bubble), Telejornal (Newscast), Dividido (Split), Apresentador (Presenter), Documentário (Documentary), Aula (Lesson), Faixa (Strip), Viral, Metade (Half), Invertido (Inverted), Pergunta (Question), Empilhado (Stacked) and Personagem (Character). The name becomes the request.</p></div>
     <div class="card"><h3>🎞️ Real example</h3><p>Each format has a 10 to 16 second clip built from a real video (Amazon wildfires, 10/15/2026).</p></div>
     <div class="card"><h3>⚙️ One command</h3><p><code>compor.sh</code> builds any format with ffmpeg alone, no GPU and no need to record the avatar again.</p></div>
   </div>
@@ -185,7 +185,7 @@
 
 <section id="f16"><div class="wrap">
   <span class="chip">16:9 · horizontal</span>
-  <h2>The 7 horizontal formats</h2>
+  <h2>The 8 horizontal formats</h2>
   <p class="sub">For YouTube, lessons and long explainers. Click to watch the example.</p>
   <div class="grid g3">
     <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/16x9-largo.jpg" src="../assets/demos/16x9-largo.mp4"></video><div class="t"><h3>Largo · Wide <span class="tag">largo</span></h3><p>Content on the left two thirds and the presenter in a column on the right, with an amber divider.</p><p class="uso">Explainer with lots of charts; the face always visible.</p></div></div>
@@ -195,13 +195,14 @@
     <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/16x9-dividido.jpg" src="../assets/demos/16x9-dividido.mp4"></video><div class="t"><h3>Dividido · Split <span class="tag">dividido</span></h3><p>Half content, half presenter, side by side.</p><p class="uso">Conversation, comparison, equal weight between speech and content.</p></div></div>
     <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/16x9-apresentador.jpg" src="../assets/demos/16x9-apresentador.mp4"></video><div class="t"><h3>Apresentador · Presenter <span class="tag">apresentador</span></h3><p>The presenter dominates the screen and the content sits in a card on the left.</p><p class="uso">Opinion and personal message; the content is just support.</p></div></div>
     <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/16x9-documentario.jpg" src="../assets/demos/16x9-documentario.mp4"></video><div class="t"><h3>Documentário · Documentary <span class="tag">documentario</span></h3><p>Only the content with the voice over it; the presenter appears in the last seconds.</p><p class="uso">Narrative; the face only at the close (CTA).</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/16x9-aula.jpg" src="../assets/demos/16x9-aula.mp4"></video><div class="t"><h3>Aula · Lesson <span class="tag">aula</span></h3><p>Content full screen and a small face in an amber frame in the top-right corner.</p><p class="uso">Lessons and calm explainers; the face doesn't compete with the content. From explicavideos.</p></div></div>
   </div>
   <p class="nota">There is no Viral in 16:9. Under the INEMA design kit rule, the viral style is for vertical video only.</p>
 </div></section>
 
 <section id="f9"><div class="wrap">
   <span class="chip">9:16 · vertical</span>
-  <h2>The 7 vertical formats</h2>
+  <h2>The 12 vertical formats</h2>
   <p class="sub">For reels, shorts and TikTok.</p>
   <div class="grid g9">
     <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-faixa.jpg" src="../assets/demos/9x16-faixa.mp4"></video><div class="t"><h3>Faixa · Strip <span class="tag">faixa</span></h3><p>Content on top and the presenter in a strip below.</p><p class="uso">Explainer reel, face the whole time.</p></div></div>
@@ -211,6 +212,11 @@
     <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-apresentador.jpg" src="../assets/demos/9x16-apresentador.mp4"></video><div class="t"><h3>Apresentador · Presenter <span class="tag">apresentador</span></h3><p>The presenter large at the bottom and the content in a square card on top.</p><p class="uso">Personal commentary on a data point.</p></div></div>
     <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-viral.jpg" src="../assets/demos/9x16-viral.mp4"></video><div class="t"><h3>Viral · Viral <span class="tag">viral</span></h3><p>Hard cuts every 2 s between content, presenter and close-up. Ends on the presenter.</p><p class="uso">High retention. The full viral style (stamps, captions) is the viral profile of explicavideos.</p></div></div>
     <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-documentario.jpg" src="../assets/demos/9x16-documentario.mp4"></video><div class="t"><h3>Documentário · Documentary <span class="tag">documentario</span></h3><p>Only the content with the voice; the presenter appears in the last seconds.</p><p class="uso">Narrated reel, face only at the CTA.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-metade.jpg" src="../assets/demos/9x16-metade.mp4"></video><div class="t"><h3>Metade · Half <span class="tag">metade</span></h3><p>Content on top and a large avatar in the bottom half.</p><p class="uso">Viral reel where the talk weighs as much as the content. From explicavideos viral.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-invertido.jpg" src="../assets/demos/9x16-invertido.mp4"></video><div class="t"><h3>Invertido · Inverted <span class="tag">invertido</span></h3><p>Avatar on top and the content below.</p><p class="uso">When the face opens the conversation and the content answers. From r7e.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-pergunta.jpg" src="../assets/demos/9x16-pergunta.mp4"></video><div class="t"><h3>Pergunta · Question <span class="tag">pergunta</span></h3><p>Large strip on the hook, then Corner; on the question the avatar grows in the middle of the screen.</p><p class="uso">A radar or news piece that ends with a question to the audience. From finviral.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-empilhado.jpg" src="../assets/demos/9x16-empilhado.mp4"></video><div class="t"><h3>Empilhado · Stacked <span class="tag">empilhado</span></h3><p>Three bands: content on top, avatar in the middle and more content below.</p><p class="uso">Promo with a headline on top and text or video below. From promoavatar.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-personagem.jpg" src="../assets/demos/9x16-personagem.mp4"></video><div class="t"><h3>Personagem · Character <span class="tag">personagem</span></h3><p>The character fills the whole video, with no separate content.</p><p class="uso">UGC, testimonial, an AI character talking straight to camera. From ugc-agente.</p></div></div>
   </div>
 </div></section>
 
@@ -229,6 +235,7 @@
       <tr><td><img class="h" src="../assets/tabela/16x9-dividido.jpg" alt="Dividido · Split 16:9" loading="lazy"></td><td class="n">Dividido · Split<small>dividido</small></td><td>right half of the screen</td><td>960×1080 (1/2)</td><td>the whole video</td></tr>
       <tr><td><img class="h" src="../assets/tabela/16x9-apresentador.jpg" alt="Apresentador · Presenter 16:9" loading="lazy"></td><td class="n">Apresentador · Presenter<small>apresentador</small></td><td>full screen in the background, shifted right; content in a card on the left</td><td>1920×1080 (card 1040×585)</td><td>the whole video</td></tr>
       <tr><td><img class="h2" src="../assets/tabela/16x9-documentario.jpg" alt="Documentário · Documentary 16:9" loading="lazy"></td><td class="n">Documentário · Documentary<small>documentario</small></td><td>full screen, only at the close</td><td>1920×1080</td><td>only in the last seconds (default 6 s, --fim)</td></tr>
+      <tr><td><img class="h" src="../assets/tabela/16x9-aula.jpg" alt="Aula · Lesson 16:9" loading="lazy"></td><td class="n">Aula · Lesson<small>aula</small></td><td>small amber frame in the TOP-right corner, over the content</td><td>406×228</td><td>the whole video</td></tr>
       <tr class="asp"><td colspan="5">9:16</td></tr>
       <tr><td><img class="v" src="../assets/tabela/9x16-faixa.jpg" alt="Faixa · Strip 9:16" loading="lazy"></td><td class="n">Faixa · Strip<small>faixa</small></td><td>horizontal strip at the bottom, below the content</td><td>1080×608</td><td>the whole video</td></tr>
       <tr><td><img class="v" src="../assets/tabela/9x16-canto.jpg" alt="Canto · Corner 9:16" loading="lazy"></td><td class="n">Canto · Corner<small>canto</small></td><td>amber frame at the bottom right, over the content</td><td>400×453</td><td>the whole video</td></tr>
@@ -237,6 +244,11 @@
       <tr><td><img class="v" src="../assets/tabela/9x16-apresentador.jpg" alt="Apresentador · Presenter 9:16" loading="lazy"></td><td class="n">Apresentador · Presenter<small>apresentador</small></td><td>bottom half, large; content in a square card on top</td><td>1080×1215 (card 620×620)</td><td>the whole video</td></tr>
       <tr><td><img class="v2" src="../assets/tabela/9x16-viral.jpg" alt="Viral 9:16" loading="lazy"></td><td class="n">Viral<small>viral</small></td><td>full screen, alternating with the content (normal and close-up)</td><td>1080×1920</td><td>every 2 s (content → avatar → content → close-up); the whole last 5 s</td></tr>
       <tr><td><img class="v2" src="../assets/tabela/9x16-documentario.jpg" alt="Documentário · Documentary 9:16" loading="lazy"></td><td class="n">Documentário · Documentary<small>documentario</small></td><td>full screen, only at the close</td><td>1080×1920</td><td>only in the last seconds (default 6 s, --fim)</td></tr>
+      <tr><td><img class="v" src="../assets/tabela/9x16-metade.jpg" alt="Metade · Half 9:16" loading="lazy"></td><td class="n">Metade · Half<small>metade</small></td><td>bottom half of the screen, below the content</td><td>1080×770</td><td>the whole video</td></tr>
+      <tr><td><img class="v" src="../assets/tabela/9x16-invertido.jpg" alt="Invertido · Inverted 9:16" loading="lazy"></td><td class="n">Invertido · Inverted<small>invertido</small></td><td>top part of the screen, with the content below</td><td>1080×880</td><td>the whole video</td></tr>
+      <tr><td><img class="v2" src="../assets/tabela/9x16-pergunta.jpg" alt="Pergunta · Question 9:16" loading="lazy"></td><td class="n">Pergunta · Question<small>pergunta</small></td><td>bottom strip on the hook → corner frame → large in the middle on the question</td><td>1080×720 → 400×453 → 1080×608</td><td>the whole video, changing place (hook: --gancho; question: --trechos)</td></tr>
+      <tr><td><img class="v" src="../assets/tabela/9x16-empilhado.jpg" alt="Empilhado · Stacked 9:16" loading="lazy"></td><td class="n">Empilhado · Stacked<small>empilhado</small></td><td>middle band, between two content blocks</td><td>1080×608</td><td>the whole video</td></tr>
+      <tr><td><img class="v" src="../assets/tabela/9x16-personagem.jpg" alt="Personagem · Character 9:16" loading="lazy"></td><td class="n">Personagem · Character<small>personagem</small></td><td>full screen, no separate content</td><td>1080×1920</td><td>the whole video</td></tr>
     </tbody>
   </table></div>
 </div></section>
@@ -244,21 +256,21 @@
 <section id="projetos"><div class="wrap">
   <span class="chip">Projects</span>
   <h2>Which layouts each project uses</h2>
-  <p class="sub">Survey of the code of INEMA's video projects (15/10/2026). Marked <b>*</b>: a variant that only exists in that project and has no name in the catalog yet.</p>
+  <p class="sub">Survey of the code of INEMA's video projects (15/10/2026). Variants that belonged to a single project now have a name in the catalog: Aula, Metade, Invertido, Pergunta, Empilhado and Personagem.</p>
   <div class="tab-wrap"><table class="tab">
     <thead><tr><th>Project</th><th>Aspect</th><th>Layouts</th><th>How it uses them</th></tr></thead>
     <tbody>
-      <tr><td class="n">explicavideos</td><td class="asp">16:9 · 9:16</td><td class="fmts">Canto · Dividido · Faixa · <i>Lesson*</i> · <i>Half screen*</i></td><td>Lesson 16:9: small face (406×228) in the top-right corner*. Viral 16:9: Corner, growing to Split in face segments. Simple 9:16: Strip. Viral 9:16: avatar in the bottom half*; with <code>avatar_916: pip</code> it becomes Corner.</td></tr>
+      <tr><td class="n">explicavideos</td><td class="asp">16:9 · 9:16</td><td class="fmts">Canto · Dividido · Faixa · Aula · Metade</td><td>Lesson 16:9: small face (406×228) in the top-right corner. Viral 16:9: Corner, growing to Split in face segments. Simple 9:16: Strip. Viral 9:16: avatar in the bottom half; with <code>avatar_916: pip</code> it becomes Corner.</td></tr>
       <tr><td class="n">refazvideo</td><td class="asp">16:9 · 9:16</td><td class="fmts">same as explicavideos</td><td>Uses the explicavideos engine (lesson or viral).</td></tr>
       <tr><td class="n">eventosextremospub</td><td class="asp">9:16 · 16:9</td><td class="fmts">Faixa · Canto</td><td>9:16: Strip or Corner (<code>LAYOUT=faixa</code> / <code>canto</code>). 16:9 with avatar: Corner, in the explicavideos viral style (decision of 15/10/2026); Wide is no longer used.</td></tr>
-      <tr><td class="n">reel7etapas (r7e)</td><td class="asp">9:16</td><td class="fmts">Canto · Apresentador · Faixa · Bolha · <i>Inverted*</i></td><td>Default <code>abre</code>: open avatar on the cover, then Corner. <code>quadro</code> ≈ Presenter, <code>dividido</code> ≈ Strip, <code>circulo</code> ≈ centered Bubble, <code>invertido</code>: avatar on top, image below*.</td></tr>
-      <tr><td class="n">finviral · saudeviral · advviral</td><td class="asp">9:16 · 16:9</td><td class="fmts">Faixa → Canto · <i>Question*</i> · Canto</td><td>Same engine in all three. 9:16: Strip on the hook, then Corner; on the question the avatar grows to 1080×600 in the middle*. 16:9 (weekend long-form): Corner at the top right.</td></tr>
-      <tr><td class="n">promoavatar · promoavatar2 · promoavatar3</td><td class="asp">9:16</td><td class="fmts">Faixa · Canto · <i>Stacked*</i></td><td><code>empilhado</code>: 3 bands, avatar in the middle*. <code>diptico</code>: image on top, avatar below, half and half (≈ Strip). <code>imagem-plena</code>: Corner at the top right.</td></tr>
+      <tr><td class="n">reel7etapas (r7e)</td><td class="asp">9:16</td><td class="fmts">Canto · Apresentador · Faixa · Bolha · Invertido</td><td>Default <code>abre</code>: open avatar on the cover, then Corner. <code>quadro</code> ≈ Presenter, <code>dividido</code> ≈ Strip, <code>circulo</code> ≈ centered Bubble, <code>invertido</code>: avatar on top, image below.</td></tr>
+      <tr><td class="n">finviral · saudeviral · advviral</td><td class="asp">9:16 · 16:9</td><td class="fmts">Faixa → Canto · Pergunta · Canto</td><td>Same engine in all three. 9:16: Strip on the hook, then Corner; on the question the avatar grows to 1080×600 in the middle. 16:9 (weekend long-form): Corner at the top right.</td></tr>
+      <tr><td class="n">promoavatar · promoavatar2 · promoavatar3</td><td class="asp">9:16</td><td class="fmts">Faixa · Canto · Empilhado</td><td><code>empilhado</code>: 3 bands, avatar in the middle. <code>diptico</code>: image on top, avatar below, half and half (≈ Strip). <code>imagem-plena</code>: Corner at the top right.</td></tr>
       <tr><td class="n">reelcomenta</td><td class="asp">9:16</td><td class="fmts">Canto</td><td>The original reel full screen and the avatar in the amber frame at the bottom right.</td></tr>
       <tr><td class="n">docflow</td><td class="asp">16:9</td><td class="fmts">Telejornal · Documentário</td><td><code>historia-apresentador</code> style: the avatar takes the screen and alternates with the visuals (Newscast). The other styles are voice over images only, no face.</td></tr>
       <tr><td class="n">makeshorts</td><td class="asp">9:16</td><td class="fmts">Faixa</td><td>Topic on top, face or avatar below, half and half. The avatar is optional (<code>MS_AVATAR=heygen</code>).</td></tr>
       <tr><td class="n">reel-edita-inematds</td><td class="asp">9:16</td><td class="fmts">Viral</td><td>Real recorded face (not an avatar): full screen, PiP in the left corner or split screen, depending on the moment.</td></tr>
-      <tr><td class="n">ugc-agente</td><td class="asp">9:16</td><td class="fmts"><i>Character*</i></td><td>An AI character (Kling + lipsync) fills the whole video; it is not Nei and there is no separate content*.</td></tr>
+      <tr><td class="n">ugc-agente</td><td class="asp">9:16</td><td class="fmts">Personagem</td><td>An AI character (Kling + lipsync) fills the whole video; it is not Nei and there is no separate content.</td></tr>
       <tr><td class="n">cardshorts · videos-explicativos · video-explicativo · aventurasinemavideo · timesmkt3</td><td class="asp">9:16 · 16:9 · 1:1</td><td class="fmts">Documentário (no face)</td><td>No avatar: voice only (cloned Nei or TTS) over cards, animated scenes, photos or ads.</td></tr>
     </tbody>
   </table></div>
@@ -337,7 +349,7 @@ cena.mp4  avatar.mp4</pre></div>
   <span class="chip">Roadmap</span>
   <h2>Where it's heading</h2>
   <p class="sub">What exists today and what comes next.</p>
-  <div class="phase"><div class="tag">Done</div><div class="d"><strong>14 formats + compor.sh</strong><span>7 in 16:9, 7 in 9:16, with real examples and a catalog in FORMATOS.md (in Portuguese).</span></div></div>
+  <div class="phase"><div class="tag">Done</div><div class="d"><strong>20 formats + compor.sh</strong><span>8 in 16:9, 12 in 9:16, with real examples and a catalog in FORMATOS.md (in Portuguese).</span></div></div>
   <div class="phase"><div class="tag">Next</div><div class="d"><strong>Use in the video projects</strong><span>INEMA's video engines (eventosextremospub, explicavideos, docflow) start accepting the format name.</span></div></div>
   <div class="phase"><div class="tag">Later</div><div class="d"><strong>More formats</strong><span>New layouts join the catalog with a name, an example and a command, in both aspects when it makes sense.</span></div></div>
 </div></section>

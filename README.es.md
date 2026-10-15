@@ -10,7 +10,7 @@ formatos-layout es un catálogo de formatos de video para quien graba con un pre
 
 ## 📖 Guía de uso
 
-Guía completa, con los 14 ejemplos en video: **https://inematds.github.io/formatos-layout/guia/es/**
+Guía completa, con los 20 ejemplos en video: **https://inematds.github.io/formatos-layout/guia/es/**
 
 ## Los formatos
 
@@ -23,6 +23,11 @@ Guía completa, con los 14 ejemplos en video: **https://inematds.github.io/forma
 | **Dividido · Dividido**: mitad contenido, mitad presentador | **Apresentador · Presentador**: presentador grande, contenido en una tarjeta arriba |
 | **Apresentador · Presentador**: el presentador domina, contenido en una tarjeta | **Viral · Viral**: cortes secos cada 2 s, cierra en el presentador |
 | **Documentário · Documental**: solo voz sobre el contenido, rostro al final | **Documentário · Documental**: solo voz sobre el contenido, rostro al final |
+| **Aula · Clase**: contenido a pantalla completa, rostro pequeño en la esquina superior | **Metade · Mitad**: avatar grande en la mitad inferior |
+| | **Invertido**: avatar arriba, contenido abajo |
+| | **Pergunta · Pregunta**: Franja en el gancho → Esquina → avatar grande en la pregunta |
+| | **Empilhado · Apilado**: contenido / avatar / contenido en 3 franjas |
+| | **Personagem · Personaje**: el personaje ocupa todo el video |
 
 Detalles, cuándo usar cada uno y ejemplos: [FORMATOS.md](FORMATOS.md) (en portugués).
 

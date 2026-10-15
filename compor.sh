@@ -1,24 +1,24 @@
 #!/usr/bin/env bash
 # formatos-layout — monta CENA + AVATAR num dos formatos nomeados (16x9 ou 9x16). Só ffmpeg, sem GPU.
 # uso: ./compor.sh --formato <nome> --aspecto 16x9|9x16 --cena cena.mp4 --avatar avatar.mp4 --saida saida.mp4 \
-#        [--ss 0] [--t 10] [--trechos "0-4,30-34"] [--fim 6] [--nome "NEI MALDANER | INEMA"]
-#   16x9: largo canto bolha telejornal dividido apresentador documentario
-#   9x16: faixa canto bolha telejornal apresentador viral documentario
+#        [--ss 0] [--t 10] [--trechos "0-4,30-34"] [--fim 6] [--gancho 3] [--nome "NEI MALDANER | INEMA"]
+#   16x9: largo canto bolha telejornal dividido apresentador documentario aula
+#   9x16: faixa canto bolha telejornal apresentador viral documentario metade invertido pergunta empilhado personagem
 # CENA = vídeo do conteúdo já no aspecto (1920x1080 ou 1080x1920). AVATAR = vídeo 16:9 do apresentador (HeyGen 1920x1080),
 # rosto perto do centro: AV_CX/AV_CY (padrão 1140/510) dizem onde fica o centro do rosto. Voz sai a -14 LUFS;
 # MUSICA=arquivo.mp3 acrescenta trilha baixa com ducking. Ver FORMATOS.md.
 set -euo pipefail
 AQUI="$(cd "$(dirname "$0")" && pwd)"
-FORMATO=""; ASP=""; CENA=""; AVATAR=""; SAIDA=""; SS=0; T=""; TRECHOS=""; FIM=6; NOME="NEI MALDANER  |  INEMA"
+FORMATO=""; ASP=""; CENA=""; AVATAR=""; SAIDA=""; SS=0; T=""; TRECHOS=""; FIM=6; GANCHO=3; NOME="NEI MALDANER  |  INEMA"
 while [ $# -gt 0 ]; do case "$1" in
   --formato) FORMATO="$2"; shift 2;; --aspecto) ASP="$2"; shift 2;; --cena) CENA="$2"; shift 2;;
   --avatar) AVATAR="$2"; shift 2;; --saida) SAIDA="$2"; shift 2;; --ss) SS="$2"; shift 2;; --t) T="$2"; shift 2;;
-  --trechos) TRECHOS="$2"; shift 2;; --fim) FIM="$2"; shift 2;; --nome) NOME="$2"; shift 2;;
+  --trechos) TRECHOS="$2"; shift 2;; --fim) FIM="$2"; shift 2;; --gancho) GANCHO="$2"; shift 2;; --nome) NOME="$2"; shift 2;;
   -h|--help) sed -n 2,9p "$0"; exit 0;; *) echo "opção desconhecida: $1" >&2; exit 2;; esac; done
 [ -n "$FORMATO" ] && [ -n "$ASP" ] && [ -s "$CENA" ] && [ -s "$AVATAR" ] && [ -n "$SAIDA" ] || { sed -n 2,9p "$0"; exit 2; }
 case "$ASP:$FORMATO" in
-  16x9:largo|16x9:canto|16x9:bolha|16x9:telejornal|16x9:dividido|16x9:apresentador|16x9:documentario) W=1920; H=1080;;
-  9x16:faixa|9x16:canto|9x16:bolha|9x16:telejornal|9x16:apresentador|9x16:viral|9x16:documentario) W=1080; H=1920;;
+  16x9:largo|16x9:canto|16x9:bolha|16x9:telejornal|16x9:dividido|16x9:apresentador|16x9:documentario|16x9:aula) W=1920; H=1080;;
+  9x16:faixa|9x16:canto|9x16:bolha|9x16:telejornal|9x16:apresentador|9x16:viral|9x16:documentario|9x16:metade|9x16:invertido|9x16:pergunta|9x16:empilhado|9x16:personagem) W=1080; H=1920;;
   *) echo "formato '$FORMATO' não existe em $ASP (ver FORMATOS.md)" >&2; exit 2;; esac
 
 CX=${AV_CX:-1140}; CY=${AV_CY:-510}
@@ -78,6 +78,20 @@ case "$ASP:$FORMATO" in
   9x16:viral)   # cortes secos a cada 2 s: conteúdo → apresentador → conteúdo → close; fecha no apresentador
     DE=$(python3 -c "print(max(0,$D-5))")
     V="[a0]split[a1][a2];$(vfull a1 aw);[a2]crop=608:1080:$(pos "$CX-304"):0,scale=1080:1920[ac];[c][aw]overlay=0:0:enable='between(mod(t,8),2,4)+gte(t,$DE)'[v1];[v1][ac]overlay=0:0:enable='between(mod(t,8),6,8)*lt(t,$DE)'[v]";;
+  16x9:aula)    # explicavideos aula: conteúdo em tela cheia, rosto pequeno (406x228) no canto de CIMA à direita
+    V="[a0]scale=406:228[av];[c]drawbox=x=1475:y=33:w=412:h=234:color=$AMB:t=fill[b];[b][av]overlay=1478:36[v]";;
+  9x16:metade)  # explicavideos 9:16 viral: avatar na metade de baixo (1080x770), conteúdo em cima
+    V="[a0]crop=1515:1080:$(pos "$CX-757"):0,scale=1080:770[av];[c][av]overlay=0:1150,drawbox=x=0:y=1146:w=1080:h=4:color=$AMB:t=fill,$(tag 28 1830 390)[v]";;
+  9x16:invertido)  # r7e invertido: avatar em cima (1080x880), conteúdo embaixo
+    V="[a0]crop=1325:1080:$(pos "$CX-662"):0,scale=1080:880[av];[c]crop=1080:1040:0:440[cs];[bg][av]overlay=0:0[b];[b][cs]overlay=0:880,drawbox=x=0:y=878:w=1080:h=4:color=$AMB:t=fill,$(tag 28 810 390)[v]";;
+  9x16:pergunta)   # finviral: Faixa grande no gancho → Canto → avatar grande no meio nos trechos da pergunta
+    [ -n "$TRECHOS" ] || TRECHOS="$(python3 -c "a=max($GANCHO,$D*0.55); print(f'{a:.2f}-{min($D,a+4):.2f}')")"
+    EN=$(expr_trechos "$TRECHOS"); EC="gte(t,$GANCHO)*eq($EN,0)"
+    V="[a0]split=3[g0][k0][p0];[g0]crop=1620:1080:$(pos "$CX-810"):0,scale=1080:720[ag];[k0]crop=900:1020:$(pos "$CX-450"):0,scale=400:453[ak];[p0]scale=1080:608[ap];[c][ag]overlay=0:1200:enable='lt(t,$GANCHO)'[v1];[v1]drawbox=x=636:y=1286:w=408:h=461:color=$AMB:t=fill:enable='$EC'[v2];[v2][ak]overlay=640:1290:enable='$EC',$(tag 640 1699 400 "$EC")[v3];[v3][ap]overlay=0:490:enable='$EN'[v]";;
+  9x16:empilhado)  # promoavatar: 3 faixas — conteúdo (704) / avatar (608) / conteúdo (608)
+    V="[c]split[c1][c2];[c1]crop=1080:704:0:${EMP_TOPO:-150}[ct];[c2]crop=1080:608:0:${EMP_BASE:-1150}[cb];[a0]scale=1080:608[av];[bg][ct]overlay=0:0[b1];[b1][av]overlay=0:704[b2];[b2][cb]overlay=0:1312,drawbox=x=0:y=702:w=1080:h=4:color=$AMB:t=fill,drawbox=x=0:y=1310:w=1080:h=4:color=$AMB:t=fill,$(tag 28 1250 390)[v]";;
+  9x16:personagem) # ugc-agente: o personagem ocupa o vídeo inteiro, sem conteúdo à parte (a cena é ignorada)
+    V="[c]nullsink;$(vfull a0 v)";;
 esac
 [[ "$V" == *"[bg]"* ]] && C="$C$BG"   # fundo escuro só nos formatos que usam
 if [ -n "${MUSICA:-}" ]; then
