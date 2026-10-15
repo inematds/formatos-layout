@@ -17,6 +17,27 @@ Opções: `--ss` / `--t` (trecho), `--trechos "0-4,30-34"` (Telejornal), `--fim 
 `AV_CX` / `AV_CY` (centro do rosto no avatar; padrão 1140/510).
 A voz sai sempre em −14 LUFS.
 
+## Onde o avatar aparece
+
+Uma imagem real de cada formato. Nos que alternam (Telejornal, Documentário, Viral), a imagem mostra os dois momentos: conteúdo à esquerda, avatar à direita.
+
+| Imagem | Formato | Onde o avatar aparece | Tamanho | Quando aparece |
+|---|---|---|---|---|
+| <img src="guia/assets/tabela/16x9-largo.jpg" width="260"> | **Largo** 16:9 | coluna à direita, ao lado do conteúdo | 640×1080 (1/3 da tela) | o vídeo todo |
+| <img src="guia/assets/tabela/16x9-canto.jpg" width="260"> | **Canto** 16:9 | quadro âmbar no canto de baixo à direita, sobre o conteúdo | 400×453 | o vídeo todo |
+| <img src="guia/assets/tabela/16x9-bolha.jpg" width="260"> | **Bolha** 16:9 | círculo com aro âmbar no canto de baixo à direita | Ø 360 px | o vídeo todo |
+| <img src="guia/assets/tabela/16x9-telejornal.jpg" width="260"> | **Telejornal** 16:9 | tela inteira, no lugar do conteúdo | 1920×1080 | só nos trechos escolhidos (padrão: 4 s no início e 5 s no fim) |
+| <img src="guia/assets/tabela/16x9-dividido.jpg" width="260"> | **Dividido** 16:9 | metade direita da tela | 960×1080 (1/2) | o vídeo todo |
+| <img src="guia/assets/tabela/16x9-apresentador.jpg" width="260"> | **Apresentador** 16:9 | tela inteira ao fundo, deslocado à direita; conteúdo num cartão à esquerda | 1920×1080 (cartão 1040×585) | o vídeo todo |
+| <img src="guia/assets/tabela/16x9-documentario.jpg" width="260"> | **Documentário** 16:9 | tela inteira, só no fechamento | 1920×1080 | só nos últimos segundos (padrão 6 s, --fim) |
+| <img src="guia/assets/tabela/9x16-faixa.jpg" height="160"> | **Faixa** 9:16 | faixa horizontal na parte de baixo, abaixo do conteúdo | 1080×608 | o vídeo todo |
+| <img src="guia/assets/tabela/9x16-canto.jpg" height="160"> | **Canto** 9:16 | quadro âmbar embaixo à direita, sobre o conteúdo | 400×453 | o vídeo todo |
+| <img src="guia/assets/tabela/9x16-bolha.jpg" height="160"> | **Bolha** 9:16 | círculo com aro âmbar embaixo à direita | Ø 400 px | o vídeo todo |
+| <img src="guia/assets/tabela/9x16-telejornal.jpg" height="160"> | **Telejornal** 9:16 | tela inteira (rosto centrado sobre fundo desfocado) | 1080×1920 | só nos trechos escolhidos (padrão: 4 s no início e 5 s no fim) |
+| <img src="guia/assets/tabela/9x16-apresentador.jpg" height="160"> | **Apresentador** 9:16 | metade de baixo, grande; conteúdo num cartão quadrado em cima | 1080×1215 (cartão 620×620) | o vídeo todo |
+| <img src="guia/assets/tabela/9x16-viral.jpg" height="160"> | **Viral** 9:16 | tela inteira, alternando com o conteúdo (normal e close) | 1080×1920 | a cada 2 s (conteúdo → avatar → conteúdo → close); os últimos 5 s inteiros |
+| <img src="guia/assets/tabela/9x16-documentario.jpg" height="160"> | **Documentário** 9:16 | tela inteira, só no fechamento | 1080×1920 | só nos últimos segundos (padrão 6 s, --fim) |
+
 ## 16:9 (horizontal)
 
 | Nome | Como fica | Quando usar | Exemplo |

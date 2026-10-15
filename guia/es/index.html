@@ -111,6 +111,16 @@
   @media(max-width:980px){.g9{grid-template-columns:repeat(3,1fr)}}
   @media(max-width:720px){.g9{grid-template-columns:1fr 1fr}}
   .nota{border-left:3px solid var(--amb);padding:10px 14px;background:var(--card);border-radius:0 10px 10px 0;color:var(--mut);font-size:.92rem;margin:22px 0 0}
+  .tab-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+  table.tab{width:100%;border-collapse:collapse;font-size:.9rem;min-width:640px}
+  table.tab th{font-family:Sora;text-align:left;font-size:.8rem;color:var(--amb);padding:12px 14px;background:var(--bg2);border-bottom:1px solid var(--line)}
+  table.tab td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:middle;color:var(--mut)}
+  table.tab tr:last-child td{border-bottom:none}
+  table.tab td.n{color:var(--txt);font-family:Sora;font-weight:700;white-space:nowrap}
+  table.tab td.n small{display:block;font-family:'JetBrains Mono',monospace;font-weight:500;color:var(--amb);font-size:.72rem;margin-top:2px}
+  table.tab img{display:block;border-radius:8px;border:1px solid var(--line)}
+  table.tab img.h{width:200px} table.tab img.h2{width:300px} table.tab img.v{height:150px} table.tab img.v2{height:150px}
+  table.tab tr.asp td{background:var(--card);color:var(--txt);font-family:Sora;font-weight:800;padding:10px 14px}
 </style>
 </head>
 <body>
@@ -127,6 +137,7 @@
     <a class="sec" href="#oque">Qué es</a>
     <a class="sec" href="#f16">16:9</a>
     <a class="sec" href="#f9">9:16</a>
+    <a class="sec" href="#avatar">Avatar</a>
     <a class="sec" href="#guia">Guía de uso</a>
     <a class="sec" href="#roadmap">Roadmap</a>
     <span class="lang"><a href="../">PT</a><a href="../en/">EN</a><a class="on" href="./">ES</a></span>
@@ -197,6 +208,33 @@
     <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-viral.jpg" src="../assets/demos/9x16-viral.mp4"></video><div class="t"><h3>Viral · Viral <span class="tag">viral</span></h3><p>Cortes secos cada 2 s entre contenido, presentador y primer plano. Cierra en el presentador.</p><p class="uso">Alta retención. El viral completo (sellos, subtítulos) es el perfil viral de explicavideos.</p></div></div>
     <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-documentario.jpg" src="../assets/demos/9x16-documentario.mp4"></video><div class="t"><h3>Documentário · Documental <span class="tag">documentario</span></h3><p>Solo el contenido con la voz; el presentador aparece en los últimos segundos.</p><p class="uso">Reel narrado, rostro solo en el CTA.</p></div></div>
   </div>
+</div></section>
+
+<section id="avatar"><div class="wrap">
+  <span class="chip">Dónde va el avatar</span>
+  <h2>Dónde aparece el avatar en cada formato</h2>
+  <p class="sub">Una imagen real de cada formato. En los formatos que alternan, la imagen muestra los dos momentos: contenido a la izquierda, avatar a la derecha.</p>
+  <div class="tab-wrap"><table class="tab">
+    <thead><tr><th>Imagen</th><th>Formato</th><th>Dónde aparece el avatar</th><th>Tamaño</th><th>Cuándo aparece</th></tr></thead>
+    <tbody>
+      <tr class="asp"><td colspan="5">16:9</td></tr>
+      <tr><td><img class="h" src="../assets/tabela/16x9-largo.jpg" alt="Largo · Ancho 16:9" loading="lazy"></td><td class="n">Largo · Ancho<small>largo</small></td><td>columna a la derecha, junto al contenido</td><td>640×1080 (1/3 de la pantalla)</td><td>todo el video</td></tr>
+      <tr><td><img class="h" src="../assets/tabela/16x9-canto.jpg" alt="Canto · Esquina 16:9" loading="lazy"></td><td class="n">Canto · Esquina<small>canto</small></td><td>cuadro ámbar en la esquina inferior derecha, sobre el contenido</td><td>400×453</td><td>todo el video</td></tr>
+      <tr><td><img class="h" src="../assets/tabela/16x9-bolha.jpg" alt="Bolha · Burbuja 16:9" loading="lazy"></td><td class="n">Bolha · Burbuja<small>bolha</small></td><td>círculo con aro ámbar en la esquina inferior derecha</td><td>Ø 360 px</td><td>todo el video</td></tr>
+      <tr><td><img class="h2" src="../assets/tabela/16x9-telejornal.jpg" alt="Telejornal · Noticiero 16:9" loading="lazy"></td><td class="n">Telejornal · Noticiero<small>telejornal</small></td><td>pantalla completa, en lugar del contenido</td><td>1920×1080</td><td>solo en los tramos elegidos (por defecto: 4 s al inicio y 5 s al final)</td></tr>
+      <tr><td><img class="h" src="../assets/tabela/16x9-dividido.jpg" alt="Dividido 16:9" loading="lazy"></td><td class="n">Dividido<small>dividido</small></td><td>mitad derecha de la pantalla</td><td>960×1080 (1/2)</td><td>todo el video</td></tr>
+      <tr><td><img class="h" src="../assets/tabela/16x9-apresentador.jpg" alt="Apresentador · Presentador 16:9" loading="lazy"></td><td class="n">Apresentador · Presentador<small>apresentador</small></td><td>pantalla completa al fondo, desplazado a la derecha; contenido en una tarjeta a la izquierda</td><td>1920×1080 (tarjeta 1040×585)</td><td>todo el video</td></tr>
+      <tr><td><img class="h2" src="../assets/tabela/16x9-documentario.jpg" alt="Documentário · Documental 16:9" loading="lazy"></td><td class="n">Documentário · Documental<small>documentario</small></td><td>pantalla completa, solo en el cierre</td><td>1920×1080</td><td>solo en los últimos segundos (por defecto 6 s, --fim)</td></tr>
+      <tr class="asp"><td colspan="5">9:16</td></tr>
+      <tr><td><img class="v" src="../assets/tabela/9x16-faixa.jpg" alt="Faixa · Franja 9:16" loading="lazy"></td><td class="n">Faixa · Franja<small>faixa</small></td><td>franja horizontal abajo, debajo del contenido</td><td>1080×608</td><td>todo el video</td></tr>
+      <tr><td><img class="v" src="../assets/tabela/9x16-canto.jpg" alt="Canto · Esquina 9:16" loading="lazy"></td><td class="n">Canto · Esquina<small>canto</small></td><td>cuadro ámbar abajo a la derecha, sobre el contenido</td><td>400×453</td><td>todo el video</td></tr>
+      <tr><td><img class="v" src="../assets/tabela/9x16-bolha.jpg" alt="Bolha · Burbuja 9:16" loading="lazy"></td><td class="n">Bolha · Burbuja<small>bolha</small></td><td>círculo con aro ámbar abajo a la derecha</td><td>Ø 400 px</td><td>todo el video</td></tr>
+      <tr><td><img class="v2" src="../assets/tabela/9x16-telejornal.jpg" alt="Telejornal · Noticiero 9:16" loading="lazy"></td><td class="n">Telejornal · Noticiero<small>telejornal</small></td><td>pantalla completa (rostro centrado sobre fondo desenfocado)</td><td>1080×1920</td><td>solo en los tramos elegidos (por defecto: 4 s al inicio y 5 s al final)</td></tr>
+      <tr><td><img class="v" src="../assets/tabela/9x16-apresentador.jpg" alt="Apresentador · Presentador 9:16" loading="lazy"></td><td class="n">Apresentador · Presentador<small>apresentador</small></td><td>mitad inferior, grande; contenido en una tarjeta cuadrada arriba</td><td>1080×1215 (tarjeta 620×620)</td><td>todo el video</td></tr>
+      <tr><td><img class="v2" src="../assets/tabela/9x16-viral.jpg" alt="Viral 9:16" loading="lazy"></td><td class="n">Viral<small>viral</small></td><td>pantalla completa, alternando con el contenido (normal y primer plano)</td><td>1080×1920</td><td>cada 2 s (contenido → avatar → contenido → primer plano); los últimos 5 s completos</td></tr>
+      <tr><td><img class="v2" src="../assets/tabela/9x16-documentario.jpg" alt="Documentário · Documental 9:16" loading="lazy"></td><td class="n">Documentário · Documental<small>documentario</small></td><td>pantalla completa, solo en el cierre</td><td>1080×1920</td><td>solo en los últimos segundos (por defecto 6 s, --fim)</td></tr>
+    </tbody>
+  </table></div>
 </div></section>
 
 <section id="fluxo"><div class="wrap">
