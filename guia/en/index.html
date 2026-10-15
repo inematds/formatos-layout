@@ -121,6 +121,9 @@
   table.tab img{display:block;border-radius:8px;border:1px solid var(--line)}
   table.tab img.h{width:200px} table.tab img.h2{width:300px} table.tab img.v{height:150px} table.tab img.v2{height:150px}
   table.tab tr.asp td{background:var(--card);color:var(--txt);font-family:Sora;font-weight:800;padding:10px 14px}
+  table.tab td.fmts{color:var(--amb);font-family:Sora;font-weight:700;font-size:.86rem;min-width:150px}
+  table.tab td.asp{white-space:nowrap}
+  #projetos td.n{white-space:normal;width:190px} #projetos td:last-child{min-width:360px;line-height:1.55}
 </style>
 </head>
 <body>
@@ -138,6 +141,7 @@
     <a class="sec" href="#f16">16:9</a>
     <a class="sec" href="#f9">9:16</a>
     <a class="sec" href="#avatar">Avatar</a>
+    <a class="sec" href="#projetos">Projects</a>
     <a class="sec" href="#guia">User guide</a>
     <a class="sec" href="#roadmap">Roadmap</a>
     <span class="lang"><a href="../">PT</a><a class="on" href="./">EN</a><a href="../es/">ES</a></span>
@@ -233,6 +237,29 @@
       <tr><td><img class="v" src="../assets/tabela/9x16-apresentador.jpg" alt="Apresentador · Presenter 9:16" loading="lazy"></td><td class="n">Apresentador · Presenter<small>apresentador</small></td><td>bottom half, large; content in a square card on top</td><td>1080×1215 (card 620×620)</td><td>the whole video</td></tr>
       <tr><td><img class="v2" src="../assets/tabela/9x16-viral.jpg" alt="Viral 9:16" loading="lazy"></td><td class="n">Viral<small>viral</small></td><td>full screen, alternating with the content (normal and close-up)</td><td>1080×1920</td><td>every 2 s (content → avatar → content → close-up); the whole last 5 s</td></tr>
       <tr><td><img class="v2" src="../assets/tabela/9x16-documentario.jpg" alt="Documentário · Documentary 9:16" loading="lazy"></td><td class="n">Documentário · Documentary<small>documentario</small></td><td>full screen, only at the close</td><td>1080×1920</td><td>only in the last seconds (default 6 s, --fim)</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section id="projetos"><div class="wrap">
+  <span class="chip">Projects</span>
+  <h2>Which layouts each project uses</h2>
+  <p class="sub">Survey of the code of INEMA's video projects (15/10/2026). Marked <b>*</b>: a variant that only exists in that project and has no name in the catalog yet.</p>
+  <div class="tab-wrap"><table class="tab">
+    <thead><tr><th>Project</th><th>Aspect</th><th>Layouts</th><th>How it uses them</th></tr></thead>
+    <tbody>
+      <tr><td class="n">explicavideos</td><td class="asp">16:9 · 9:16</td><td class="fmts">Canto · Dividido · Faixa · <i>Lesson*</i> · <i>Half screen*</i></td><td>Lesson 16:9: small face (406×228) in the top-right corner*. Viral 16:9: Corner, growing to Split in face segments. Simple 9:16: Strip. Viral 9:16: avatar in the bottom half*; with <code>avatar_916: pip</code> it becomes Corner.</td></tr>
+      <tr><td class="n">refazvideo</td><td class="asp">16:9 · 9:16</td><td class="fmts">same as explicavideos</td><td>Uses the explicavideos engine (lesson or viral).</td></tr>
+      <tr><td class="n">eventosextremospub</td><td class="asp">9:16 · 16:9</td><td class="fmts">Faixa · Canto</td><td>9:16: Strip or Corner (<code>LAYOUT=faixa</code> / <code>canto</code>). 16:9 with avatar: Corner, in the explicavideos viral style (decision of 15/10/2026); Wide is no longer used.</td></tr>
+      <tr><td class="n">reel7etapas (r7e)</td><td class="asp">9:16</td><td class="fmts">Canto · Apresentador · Faixa · Bolha · <i>Inverted*</i></td><td>Default <code>abre</code>: open avatar on the cover, then Corner. <code>quadro</code> ≈ Presenter, <code>dividido</code> ≈ Strip, <code>circulo</code> ≈ centered Bubble, <code>invertido</code>: avatar on top, image below*.</td></tr>
+      <tr><td class="n">finviral · saudeviral · advviral</td><td class="asp">9:16 · 16:9</td><td class="fmts">Faixa → Canto · <i>Question*</i> · Canto</td><td>Same engine in all three. 9:16: Strip on the hook, then Corner; on the question the avatar grows to 1080×600 in the middle*. 16:9 (weekend long-form): Corner at the top right.</td></tr>
+      <tr><td class="n">promoavatar · promoavatar2 · promoavatar3</td><td class="asp">9:16</td><td class="fmts">Faixa · Canto · <i>Stacked*</i></td><td><code>empilhado</code>: 3 bands, avatar in the middle*. <code>diptico</code>: image on top, avatar below, half and half (≈ Strip). <code>imagem-plena</code>: Corner at the top right.</td></tr>
+      <tr><td class="n">reelcomenta</td><td class="asp">9:16</td><td class="fmts">Canto</td><td>The original reel full screen and the avatar in the amber frame at the bottom right.</td></tr>
+      <tr><td class="n">docflow</td><td class="asp">16:9</td><td class="fmts">Telejornal · Documentário</td><td><code>historia-apresentador</code> style: the avatar takes the screen and alternates with the visuals (Newscast). The other styles are voice over images only, no face.</td></tr>
+      <tr><td class="n">makeshorts</td><td class="asp">9:16</td><td class="fmts">Faixa</td><td>Topic on top, face or avatar below, half and half. The avatar is optional (<code>MS_AVATAR=heygen</code>).</td></tr>
+      <tr><td class="n">reel-edita-inematds</td><td class="asp">9:16</td><td class="fmts">Viral</td><td>Real recorded face (not an avatar): full screen, PiP in the left corner or split screen, depending on the moment.</td></tr>
+      <tr><td class="n">ugc-agente</td><td class="asp">9:16</td><td class="fmts"><i>Character*</i></td><td>An AI character (Kling + lipsync) fills the whole video; it is not Nei and there is no separate content*.</td></tr>
+      <tr><td class="n">cardshorts · videos-explicativos · video-explicativo · aventurasinemavideo · timesmkt3</td><td class="asp">9:16 · 16:9 · 1:1</td><td class="fmts">Documentário (no face)</td><td>No avatar: voice only (cloned Nei or TTS) over cards, animated scenes, photos or ads.</td></tr>
     </tbody>
   </table></div>
 </div></section>

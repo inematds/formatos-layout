@@ -26,6 +26,8 @@ Full guide, with the 14 video examples: **https://inematds.github.io/formatos-la
 
 Details, when to use each one and examples: [FORMATOS.md](FORMATOS.md) (in Portuguese).
 
+It also shows where the avatar appears in each layout and **which layouts each INEMA video project uses** (explicavideos, eventosextremospub, r7e, finviral, promoavatar, docflow and others); the same tables are in the guide, in English.
+
 ## Usage
 
 ```bash

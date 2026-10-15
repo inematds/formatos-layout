@@ -65,6 +65,25 @@ Uma imagem real de cada formato. Nos que alternam (Telejornal, Documentário, Vi
 | **Viral** | Cortes secos a cada 2 s: conteúdo → apresentador → conteúdo → close; fecha no apresentador | Short de retenção alta. Versão simples: o viral completo (carimbos, legenda palavra a palavra) é o perfil viral do explicavideos | `demos/9x16/viral.mp4` |
 | **Documentário** | Só o conteúdo com a voz por cima; o apresentador aparece nos últimos segundos | Reel narrado, com o rosto só no CTA | `demos/9x16/documentario.mp4` |
 
+## Quais formatos cada projeto usa
+
+Levantamento no código dos projetos de vídeo do INEMA em 15/10/2026. Com _*_, uma variante que só existe naquele projeto e ainda não tem nome no catálogo.
+
+| Projeto | Aspecto | Formatos | Como usa |
+|---|---|---|---|
+| **explicavideos** | 16:9 · 9:16 | Canto · Dividido · Faixa · _Aula*_ · _Meia tela*_ | Aula 16:9: rosto pequeno (406×228) no canto de cima à direita*. Viral 16:9: Canto, que cresce para Dividido nos trechos de rosto. 9:16 simples: Faixa. 9:16 viral: avatar na metade de baixo*; com <code>avatar_916: pip</code> vira Canto. |
+| **refazvideo** | 16:9 · 9:16 | os mesmos do explicavideos | Usa o motor do explicavideos (aula ou viral). |
+| **eventosextremospub** | 9:16 · 16:9 | Faixa · Canto | 9:16: Faixa ou Canto (<code>LAYOUT=faixa</code> / <code>canto</code>). 16:9 com avatar: Canto, no estilo do explicavideos viral (decisão de 15/10/2026); o Largo saiu de uso. |
+| **reel7etapas (r7e)** | 9:16 | Canto · Apresentador · Faixa · Bolha · _Invertido*_ | Padrão <code>abre</code>: avatar aberto na capa e depois Canto. <code>quadro</code> ≈ Apresentador, <code>dividido</code> ≈ Faixa, <code>circulo</code> ≈ Bolha centralizada, <code>invertido</code>: avatar em cima e imagem embaixo*. |
+| **finviral · saudeviral · advviral** | 9:16 · 16:9 | Faixa → Canto · _Pergunta*_ · Canto | Mesmo motor nos três. 9:16: Faixa no gancho, depois Canto; na pergunta o avatar cresce para 1080×600 no meio*. 16:9 (longo do fim de semana): Canto no alto à direita. |
+| **promoavatar · promoavatar2 · promoavatar3** | 9:16 | Faixa · Canto · _Empilhado*_ | <code>empilhado</code>: 3 faixas, avatar no meio*. <code>diptico</code>: imagem em cima e avatar embaixo, meio a meio (≈ Faixa). <code>imagem-plena</code>: Canto no alto à direita. |
+| **reelcomenta** | 9:16 | Canto | O reel original em tela cheia e o avatar no quadro âmbar embaixo à direita. |
+| **docflow** | 16:9 | Telejornal · Documentário | Estilo <code>historia-apresentador</code>: o avatar toma a tela e alterna com os visuais (Telejornal). Os outros estilos são só voz sobre imagens, sem rosto. |
+| **makeshorts** | 9:16 | Faixa | Tema em cima e rosto ou avatar embaixo, meio a meio. O avatar é opcional (<code>MS_AVATAR=heygen</code>). |
+| **reel-edita-inematds** | 9:16 | Viral | Rosto gravado de verdade (não avatar): tela cheia, PiP no canto esquerdo ou tela dividida, conforme o momento. |
+| **ugc-agente** | 9:16 | _Personagem*_ | Personagem de IA (Kling + lipsync) ocupa o vídeo inteiro; não é o Nei e não há conteúdo à parte*. |
+| **cardshorts · videos-explicativos · video-explicativo · aventurasinemavideo · timesmkt3** | 9:16 · 16:9 · 1:1 | Documentário (sem rosto) | Sem avatar: só a voz (Nei clonado ou TTS) sobre cards, cenas animadas, fotos ou anúncios. |
+
 ## De onde veio
 
 Os formatos Largo, Canto (9:16) e Faixa já rodavam no motor do

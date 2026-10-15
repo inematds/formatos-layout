@@ -26,6 +26,8 @@ Guía completa, con los 14 ejemplos en video: **https://inematds.github.io/forma
 
 Detalles, cuándo usar cada uno y ejemplos: [FORMATOS.md](FORMATOS.md) (en portugués).
 
+También muestra dónde aparece el avatar en cada formato y **qué formatos usa cada proyecto de video de INEMA** (explicavideos, eventosextremospub, r7e, finviral, promoavatar, docflow y otros); las mismas tablas están en la guía, en español.
+
 ## Uso
 
 ```bash

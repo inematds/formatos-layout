@@ -121,6 +121,9 @@
   table.tab img{display:block;border-radius:8px;border:1px solid var(--line)}
   table.tab img.h{width:200px} table.tab img.h2{width:300px} table.tab img.v{height:150px} table.tab img.v2{height:150px}
   table.tab tr.asp td{background:var(--card);color:var(--txt);font-family:Sora;font-weight:800;padding:10px 14px}
+  table.tab td.fmts{color:var(--amb);font-family:Sora;font-weight:700;font-size:.86rem;min-width:150px}
+  table.tab td.asp{white-space:nowrap}
+  #projetos td.n{white-space:normal;width:190px} #projetos td:last-child{min-width:360px;line-height:1.55}
 </style>
 </head>
 <body>
@@ -138,6 +141,7 @@
     <a class="sec" href="#f16">16:9</a>
     <a class="sec" href="#f9">9:16</a>
     <a class="sec" href="#avatar">Avatar</a>
+    <a class="sec" href="#projetos">Projetos</a>
     <a class="sec" href="#guia">Guia de uso</a>
     <a class="sec" href="#roadmap">Roadmap</a>
     <span class="lang"><a class="on" href="./">PT</a><a href="en/">EN</a><a href="es/">ES</a></span>
@@ -233,6 +237,29 @@
       <tr><td><img class="v" src="assets/tabela/9x16-apresentador.jpg" alt="Apresentador 9:16" loading="lazy"></td><td class="n">Apresentador<small>apresentador</small></td><td>metade de baixo, grande; conteúdo num cartão quadrado em cima</td><td>1080×1215 (cartão 620×620)</td><td>o vídeo todo</td></tr>
       <tr><td><img class="v2" src="assets/tabela/9x16-viral.jpg" alt="Viral 9:16" loading="lazy"></td><td class="n">Viral<small>viral</small></td><td>tela inteira, alternando com o conteúdo (normal e close)</td><td>1080×1920</td><td>a cada 2 s (conteúdo → avatar → conteúdo → close); os últimos 5 s inteiros</td></tr>
       <tr><td><img class="v2" src="assets/tabela/9x16-documentario.jpg" alt="Documentário 9:16" loading="lazy"></td><td class="n">Documentário<small>documentario</small></td><td>tela inteira, só no fechamento</td><td>1080×1920</td><td>só nos últimos segundos (padrão 6 s, --fim)</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section id="projetos"><div class="wrap">
+  <span class="chip">Projetos</span>
+  <h2>Quais formatos cada projeto usa</h2>
+  <p class="sub">Levantamento no código dos projetos de vídeo do INEMA (15/10/2026). Com <b>*</b>, uma variante que só existe naquele projeto e ainda não tem nome no catálogo.</p>
+  <div class="tab-wrap"><table class="tab">
+    <thead><tr><th>Projeto</th><th>Aspecto</th><th>Formatos</th><th>Como usa</th></tr></thead>
+    <tbody>
+      <tr><td class="n">explicavideos</td><td class="asp">16:9 · 9:16</td><td class="fmts">Canto · Dividido · Faixa · <i>Aula*</i> · <i>Meia tela*</i></td><td>Aula 16:9: rosto pequeno (406×228) no canto de cima à direita*. Viral 16:9: Canto, que cresce para Dividido nos trechos de rosto. 9:16 simples: Faixa. 9:16 viral: avatar na metade de baixo*; com <code>avatar_916: pip</code> vira Canto.</td></tr>
+      <tr><td class="n">refazvideo</td><td class="asp">16:9 · 9:16</td><td class="fmts">os mesmos do explicavideos</td><td>Usa o motor do explicavideos (aula ou viral).</td></tr>
+      <tr><td class="n">eventosextremospub</td><td class="asp">9:16 · 16:9</td><td class="fmts">Faixa · Canto</td><td>9:16: Faixa ou Canto (<code>LAYOUT=faixa</code> / <code>canto</code>). 16:9 com avatar: Canto, no estilo do explicavideos viral (decisão de 15/10/2026); o Largo saiu de uso.</td></tr>
+      <tr><td class="n">reel7etapas (r7e)</td><td class="asp">9:16</td><td class="fmts">Canto · Apresentador · Faixa · Bolha · <i>Invertido*</i></td><td>Padrão <code>abre</code>: avatar aberto na capa e depois Canto. <code>quadro</code> ≈ Apresentador, <code>dividido</code> ≈ Faixa, <code>circulo</code> ≈ Bolha centralizada, <code>invertido</code>: avatar em cima e imagem embaixo*.</td></tr>
+      <tr><td class="n">finviral · saudeviral · advviral</td><td class="asp">9:16 · 16:9</td><td class="fmts">Faixa → Canto · <i>Pergunta*</i> · Canto</td><td>Mesmo motor nos três. 9:16: Faixa no gancho, depois Canto; na pergunta o avatar cresce para 1080×600 no meio*. 16:9 (longo do fim de semana): Canto no alto à direita.</td></tr>
+      <tr><td class="n">promoavatar · promoavatar2 · promoavatar3</td><td class="asp">9:16</td><td class="fmts">Faixa · Canto · <i>Empilhado*</i></td><td><code>empilhado</code>: 3 faixas, avatar no meio*. <code>diptico</code>: imagem em cima e avatar embaixo, meio a meio (≈ Faixa). <code>imagem-plena</code>: Canto no alto à direita.</td></tr>
+      <tr><td class="n">reelcomenta</td><td class="asp">9:16</td><td class="fmts">Canto</td><td>O reel original em tela cheia e o avatar no quadro âmbar embaixo à direita.</td></tr>
+      <tr><td class="n">docflow</td><td class="asp">16:9</td><td class="fmts">Telejornal · Documentário</td><td>Estilo <code>historia-apresentador</code>: o avatar toma a tela e alterna com os visuais (Telejornal). Os outros estilos são só voz sobre imagens, sem rosto.</td></tr>
+      <tr><td class="n">makeshorts</td><td class="asp">9:16</td><td class="fmts">Faixa</td><td>Tema em cima e rosto ou avatar embaixo, meio a meio. O avatar é opcional (<code>MS_AVATAR=heygen</code>).</td></tr>
+      <tr><td class="n">reel-edita-inematds</td><td class="asp">9:16</td><td class="fmts">Viral</td><td>Rosto gravado de verdade (não avatar): tela cheia, PiP no canto esquerdo ou tela dividida, conforme o momento.</td></tr>
+      <tr><td class="n">ugc-agente</td><td class="asp">9:16</td><td class="fmts"><i>Personagem*</i></td><td>Personagem de IA (Kling + lipsync) ocupa o vídeo inteiro; não é o Nei e não há conteúdo à parte*.</td></tr>
+      <tr><td class="n">cardshorts · videos-explicativos · video-explicativo · aventurasinemavideo · timesmkt3</td><td class="asp">9:16 · 16:9 · 1:1</td><td class="fmts">Documentário (sem rosto)</td><td>Sem avatar: só a voz (Nei clonado ou TTS) sobre cards, cenas animadas, fotos ou anúncios.</td></tr>
     </tbody>
   </table></div>
 </div></section>
