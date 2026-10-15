@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>formatos-layout — catálogo de formatos de video con avatar</title>
+<meta name="description" content="14 formatos de video con avatar (7 en 16:9 y 7 en 9:16), cada uno con nombre, ejemplo real y un comando ffmpeg para armarlo.">
+<link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/formatos-layout/guia/">
+<link rel="alternate" hreflang="en" href="https://inematds.github.io/formatos-layout/guia/en/">
+<link rel="alternate" hreflang="es" href="https://inematds.github.io/formatos-layout/guia/es/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
+    --txt:#e9e9ee; --mut:#9a9aa6; --amb:#E2A23B; --amb2:#f0c070; --sky:#38bdf8; --pro:#cbd5e1;
+    color-scheme:dark;
+  }
+  body.light{
+    --bg:#f6f7f9; --bg2:#eceef2; --card:#ffffff; --line:#e1e3ea;
+    --txt:#1a1a22; --mut:#5b5b68; --amb:#b9791d; --amb2:#a16207; --sky:#0369a1; --pro:#b45309;
+    color-scheme:light;
+  }
+  body.light .hero .glow{opacity:.5}
+  body.light pre{background:#0e0e14;color:#d6d6e0}
+  body.light pre .c{color:#8a8a98}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Sora,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--amb);text-decoration:none}
+  code,pre{font-family:"JetBrains Mono",monospace}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .mut{color:var(--mut)} .amb{color:var(--amb)}
+  .chip{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600;font-family:Sora}
+  nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);background:rgba(12,12,16,.78);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb)}
+  nav .brand .emoji{font-size:1.25rem}
+  nav .sep{color:var(--mut);opacity:.45}
+  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .inema:hover{filter:brightness(1.15)}
+  nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .pro:hover{filter:brightness(1.15)}
+  nav .clubpro{display:inline-flex;align-items:center;gap:6px}
+  nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
+  nav .links a.sec{color:var(--mut)} nav .links a.sec:hover{color:var(--txt)}
+  .lang{display:inline-flex;gap:2px;font-family:Sora;font-size:.78rem}
+  .lang a{color:var(--mut);padding:.2em .45em;border-radius:6px} .lang a.on{color:var(--amb);background:rgba(226,162,59,.12)}
+  .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .tgl:hover{border-color:var(--amb)}
+  .btn{display:inline-block;background:var(--amb);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  @media(max-width:760px){nav .links a.sec{display:none}}
+  @media(max-width:520px){nav .wrap{gap:8px;padding:8px 14px;height:auto;flex-wrap:wrap} nav .links{gap:8px;margin-left:0;width:100%;justify-content:space-between} nav .btn{padding:.45em .7em;font-size:.82rem} .tgl{width:34px;height:34px}}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(226,162,59,.22),transparent 70%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:74px 22px}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.025em}
+  .hero p.lead{font-size:1.18rem;color:var(--mut);margin:1.1em 0 1.6em;max-width:34ch}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000}
+  .hero figure img{width:100%;display:block}
+  .resumo{padding:38px 0 34px;border-bottom:1px solid var(--line)}
+  .resumo p{font-size:1.12rem;line-height:1.7;max-width:74ch;margin:.55em 0 0}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;padding:48px 22px}}
+  section{padding:62px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+  section .sub{color:var(--mut);margin:.6em 0 2em;max-width:62ch}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3,.g4{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h3{font-size:1.05rem;margin-bottom:.4em}
+  .card p{color:var(--mut);font-size:.92rem;margin:0}
+  .num{display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;border-radius:8px;background:rgba(226,162,59,.14);color:var(--amb);font-family:Sora;font-weight:800;font-size:.9rem;margin-bottom:.7em}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .flow span{background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;font-size:.85rem;font-family:Sora;font-weight:600}
+  .flow .arr{color:var(--amb);border:none;background:none;padding:0 .1em}
+  pre{background:#0a0a0e;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;font-size:.86rem;line-height:1.6;color:#d6d6e0}
+  pre .c{color:#6f6f7c} pre .k{color:var(--amb2)} pre .s{color:#9ece6a}
+  .step{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;margin-bottom:26px}
+  .step>div,.card{min-width:0}
+  p code,li code,td code{overflow-wrap:anywhere}
+  .step .b{width:46px;height:46px;border-radius:12px;background:var(--amb);color:#1a1206;font-family:Sora;font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.12rem;margin-bottom:.3em}
+  .step p{color:var(--mut);margin:.2em 0 .7em}
+  .ex{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:680px){.ex{grid-template-columns:1fr}}
+  .ex figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+  .ex figure img{width:100%;display:block}
+  .ex figcaption{padding:12px 14px;font-size:.88rem;color:var(--mut);background:var(--card)}
+  .phase{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .phase:last-child{border:none}
+  .phase .tag{flex:0 0 92px;font-family:Sora;font-weight:800;color:var(--amb)}
+  .phase .d strong{display:block;margin-bottom:.2em}
+  .phase .d span{color:var(--mut);font-size:.92rem}
+  footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:0 4px}
+  .fmt{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+  .fmt video{width:100%;display:block;background:#000}
+  .fmt .t{padding:14px 16px 16px}
+  .fmt h3{font-size:1.08rem;margin-bottom:.25em;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .fmt h3 .tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:600;color:var(--amb);border:1px solid var(--line);border-radius:6px;padding:.1em .45em}
+  .fmt p{color:var(--mut);font-size:.9rem;margin:.2em 0 0}
+  .fmt p.uso{color:var(--txt);font-size:.86rem;margin-top:.55em}
+  .fmt code{font-size:.78rem}
+  .g9{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:980px){.g9{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:720px){.g9{grid-template-columns:1fr 1fr}}
+  .nota{border-left:3px solid var(--amb);padding:10px 14px;background:var(--card);border-radius:0 10px 10px 0;color:var(--mut);font-size:.92rem;margin:22px 0 0}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top"><span class="emoji">🎬</span> formatos-layout</a>
+  <span class="sep">|</span>
+  <span class="clubpro">
+    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <span class="sep">-</span>
+    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+  </span>
+  <div class="links">
+    <a class="sec" href="#oque">Qué es</a>
+    <a class="sec" href="#f16">16:9</a>
+    <a class="sec" href="#f9">9:16</a>
+    <a class="sec" href="#guia">Guía de uso</a>
+    <a class="sec" href="#roadmap">Roadmap</a>
+    <span class="lang"><a href="../">PT</a><a href="../en/">EN</a><a class="on" href="./">ES</a></span>
+    <button class="tgl" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">🌙</button>
+    <a class="btn" href="https://github.com/inematds/formatos-layout" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div>
+      <span class="chip">Catálogo de layouts de video con avatar</span>
+      <h1>Cada video en un <span class="amb">formato</span> con nombre</h1>
+      <p class="lead">14 maneras de combinar presentador y contenido, 7 en 16:9 y 7 en 9:16. Cada una con un ejemplo real y un comando para armarla.</p>
+      <div class="cta">
+        <a class="btn" href="#f16">Ver los formatos</a>
+        <a class="btn ghost" href="https://github.com/inematds/formatos-layout" target="_blank" rel="noopener">Ver en GitHub</a>
+      </div>
+    </div>
+    <figure><img src="../assets/banner-es.jpg" alt="Banner Formatos de video: 14 layouts con avatar"></figure>
+  </div>
+</header>
+
+<section id="resumo" class="resumo"><div class="wrap">
+  <span class="chip">En resumen</span>
+  <p>formatos-layout es un catálogo de formatos de video para quien graba con un presentador (avatar) y muestra contenido al mismo tiempo: mapa, gráfico, captura de pantalla o foto. Cada formato tiene un nombre fijo, como Largo, Bolha o Telejornal. Así puedes pedir "ármalo en Bolha 9:16" sin volver a explicar el layout. Incluye un script que arma el video final a partir de dos archivos: el video del contenido y el video del presentador. Para usarlo, solo necesitas tener ffmpeg y Python instalados.</p>
+</div></section>
+
+<section id="oque"><div class="wrap">
+  <span class="chip">Qué es</span>
+  <h2>Un nombre para cada manera de armar</h2>
+  <p class="sub">Hasta ahora cada proyecto tenía su propio layout escondido en el código. Ahora los formatos están en un solo lugar, con nombre, ejemplo y comando.</p>
+  <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="../assets/banner-grade-es.jpg" alt="Los formatos: Largo (Ancho), Canto (Esquina), Bolha (Burbuja), Telejornal (Noticiero), Apresentador (Presentador), Documentário (Documental)" loading="lazy" style="width:100%;display:block"></figure>
+  <div class="grid g3">
+    <div class="card"><h3>🏷️ Nombre fijo</h3><p>Largo (Ancho), Canto (Esquina), Bolha (Burbuja), Telejornal (Noticiero), Dividido, Apresentador (Presentador), Faixa (Franja), Viral y Documentário (Documental). El nombre se convierte en el pedido.</p></div>
+    <div class="card"><h3>🎞️ Ejemplo real</h3><p>Cada formato tiene un clip de 10 a 16 segundos armado con un video real (Incendios en la Amazonía, 15/10/2026).</p></div>
+    <div class="card"><h3>⚙️ Un comando</h3><p><code>compor.sh</code> arma cualquier formato solo con ffmpeg, sin GPU y sin volver a grabar el avatar.</p></div>
+  </div>
+</div></section>
+
+<section id="f16"><div class="wrap">
+  <span class="chip">16:9 · horizontal</span>
+  <h2>Los 7 formatos horizontales</h2>
+  <p class="sub">Para YouTube, clases y explicativos largos. Haz clic para ver el ejemplo.</p>
+  <div class="grid g3">
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/16x9-largo.jpg" src="../assets/demos/16x9-largo.mp4"></video><div class="t"><h3>Largo · Ancho <span class="tag">largo</span></h3><p>Contenido en los 2/3 de la izquierda y el presentador en una columna a la derecha, con divisor ámbar.</p><p class="uso">Explicativo con muchos gráficos; el rostro siempre visible.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/16x9-canto.jpg" src="../assets/demos/16x9-canto.mp4"></video><div class="t"><h3>Canto · Esquina <span class="tag">canto</span></h3><p>Contenido en pantalla completa y el rostro en un recuadro ámbar en la esquina inferior.</p><p class="uso">Cuando lo visual es la estrella (mapa 3D, demo de pantalla).</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/16x9-bolha.jpg" src="../assets/demos/16x9-bolha.mp4"></video><div class="t"><h3>Bolha · Burbuja <span class="tag">bolha</span></h3><p>Contenido en pantalla completa y el rostro en un círculo con aro ámbar.</p><p class="uso">Igual que Canto, con un aspecto más ligero.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/16x9-telejornal.jpg" src="../assets/demos/16x9-telejornal.mp4"></video><div class="t"><h3>Telejornal · Noticiero <span class="tag">telejornal</span></h3><p>Contenido en pantalla completa; el presentador ocupa toda la pantalla en los tramos elegidos.</p><p class="uso">Apertura y cierre mirando a la cámara, contenido completo en el medio.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/16x9-dividido.jpg" src="../assets/demos/16x9-dividido.mp4"></video><div class="t"><h3>Dividido · Dividido <span class="tag">dividido</span></h3><p>Mitad contenido, mitad presentador, lado a lado.</p><p class="uso">Conversación, comparación, mismo peso entre habla y contenido.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/16x9-apresentador.jpg" src="../assets/demos/16x9-apresentador.mp4"></video><div class="t"><h3>Apresentador · Presentador <span class="tag">apresentador</span></h3><p>El presentador domina la pantalla y el contenido entra en una tarjeta a la izquierda.</p><p class="uso">Opinión y mensaje personal; el contenido es solo apoyo.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/16x9-documentario.jpg" src="../assets/demos/16x9-documentario.mp4"></video><div class="t"><h3>Documentário · Documental <span class="tag">documentario</span></h3><p>Solo el contenido con la voz encima; el presentador aparece en los últimos segundos.</p><p class="uso">Narrativa; el rostro solo en el cierre (CTA).</p></div></div>
+  </div>
+  <p class="nota">No existe Viral en 16:9. Según la regla del kit de diseño INEMA, el estilo viral es solo para video vertical.</p>
+</div></section>
+
+<section id="f9"><div class="wrap">
+  <span class="chip">9:16 · vertical</span>
+  <h2>Los 7 formatos verticales</h2>
+  <p class="sub">Para reels, shorts y TikTok.</p>
+  <div class="grid g9">
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-faixa.jpg" src="../assets/demos/9x16-faixa.mp4"></video><div class="t"><h3>Faixa · Franja <span class="tag">faixa</span></h3><p>Contenido arriba y el presentador en una franja abajo.</p><p class="uso">Reel explicativo, rostro todo el tiempo.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-canto.jpg" src="../assets/demos/9x16-canto.mp4"></video><div class="t"><h3>Canto · Esquina <span class="tag">canto</span></h3><p>Contenido en pantalla completa y el rostro en un recuadro ámbar abajo a la derecha.</p><p class="uso">Reel en el que manda lo visual.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-bolha.jpg" src="../assets/demos/9x16-bolha.mp4"></video><div class="t"><h3>Bolha · Burbuja <span class="tag">bolha</span></h3><p>Contenido en pantalla completa y el rostro en un círculo con aro ámbar.</p><p class="uso">Igual que Canto, más ligero.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-telejornal.jpg" src="../assets/demos/9x16-telejornal.mp4"></video><div class="t"><h3>Telejornal · Noticiero <span class="tag">telejornal</span></h3><p>Contenido en pantalla completa; el presentador toma la pantalla en los tramos elegidos.</p><p class="uso">Gancho y CTA con el rostro.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-apresentador.jpg" src="../assets/demos/9x16-apresentador.mp4"></video><div class="t"><h3>Apresentador · Presentador <span class="tag">apresentador</span></h3><p>El presentador grande abajo y el contenido en una tarjeta cuadrada arriba.</p><p class="uso">Comentario personal sobre un dato.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-viral.jpg" src="../assets/demos/9x16-viral.mp4"></video><div class="t"><h3>Viral · Viral <span class="tag">viral</span></h3><p>Cortes secos cada 2 s entre contenido, presentador y primer plano. Cierra en el presentador.</p><p class="uso">Alta retención. El viral completo (sellos, subtítulos) es el perfil viral de explicavideos.</p></div></div>
+    <div class="fmt"><video controls preload="none" playsinline poster="../assets/demos/9x16-documentario.jpg" src="../assets/demos/9x16-documentario.mp4"></video><div class="t"><h3>Documentário · Documental <span class="tag">documentario</span></h3><p>Solo el contenido con la voz; el presentador aparece en los últimos segundos.</p><p class="uso">Reel narrado, rostro solo en el CTA.</p></div></div>
+  </div>
+</div></section>
+
+<section id="fluxo"><div class="wrap">
+  <span class="chip">Cómo funciona</span>
+  <h2>Entran dos videos, sale uno</h2>
+  <p class="sub">El contenido y el presentador se graban por separado. El formato solo decide cómo aparecen los dos juntos.</p>
+  <div class="flow">
+    <span>Video del contenido</span><span class="arr">+</span>
+    <span>Video del presentador</span><span class="arr">→</span>
+    <span>compor.sh --formato</span><span class="arr">→</span>
+    <span>Video final con voz en −14 LUFS</span>
+  </div>
+</div></section>
+
+<section id="pre"><div class="wrap">
+  <span class="chip">Requisitos previos</span>
+  <h2>Lo que necesitas</h2>
+  <p class="sub">Nada de GPU ni de servicios pagos. Funciona en Linux o macOS.</p>
+  <div class="grid g3">
+    <div class="card"><h3>ffmpeg</h3><p>Hace todo el armado.</p><pre><span class="c"># Ubuntu/Debian</span>
+<span class="k">sudo apt install ffmpeg</span></pre></div>
+    <div class="card"><h3>Python 3 + Pillow</h3><p>Hace los cálculos de tiempo y la máscara de Bolha (Burbuja).</p><pre><span class="k">pip install pillow</span></pre></div>
+    <div class="card"><h3>Dos videos</h3><p>El contenido ya en el aspecto final (1920×1080 o 1080×1920) y el presentador en 16:9 con la voz.</p><pre><span class="c"># ej.: avatar del estudio HeyGen</span>
+cena.mp4  avatar.mp4</pre></div>
+  </div>
+</div></section>
+
+<section id="guia"><div class="wrap">
+  <span class="chip">Guía de uso · paso a paso</span>
+  <h2>Armando un video en un formato</h2>
+  <p class="sub">Los comandos de abajo son los mismos que generaron los ejemplos de esta página.</p>
+
+  <div class="step"><div class="b">1</div><div>
+    <h3>Descarga el proyecto</h3>
+    <p>Un script y una carpeta de apoyo.</p>
+<pre><span class="k">git clone https://github.com/inematds/formatos-layout</span>
+<span class="k">cd formatos-layout</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>Elige el formato por su nombre</h3>
+    <p>Mira la lista de arriba o el <code>FORMATOS.md</code> (en portugués). El nombre va en minúsculas y sin tildes.</p>
+<pre><span class="c"># 16x9: largo canto bolha telejornal dividido apresentador documentario</span>
+<span class="c"># 9x16: faixa canto bolha telejornal apresentador viral documentario</span>
+<span class="k">./compor.sh --help</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>Arma el video</h3>
+    <p>Indica el formato, el aspecto, los dos videos y el archivo de salida.</p>
+<pre><span class="k">./compor.sh --formato bolha --aspecto 16x9 \
+  --cena cena.mp4 --avatar avatar.mp4 --saida video-bolha.mp4</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Ajusta los tramos (Telejornal y Documentário)</h3>
+    <p>En Telejornal (Noticiero) eliges cuándo el presentador toma la pantalla. En Documentário (Documental), cuántos segundos aparece al final.</p>
+<pre><span class="k">./compor.sh --formato telejornal --aspecto 9x16 --cena c.mp4 --avatar a.mp4 \
+  --saida tj.mp4 --trechos "0-3,25-28,40-46"</span>
+<span class="k">./compor.sh --formato documentario --aspecto 16x9 --cena c.mp4 --avatar a.mp4 \
+  --saida doc.mp4 --fim 8</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">5</div><div>
+    <h3>Extras: tramo, música, nombre y rostro</h3>
+    <p><code>--ss</code>/<code>--t</code> recortan un fragmento; <code>MUSICA</code> agrega una música suave que baja bajo la voz; <code>--nome</code> cambia la placa con el nombre; <code>AV_CX</code>/<code>AV_CY</code> indican dónde está el rostro en el video del presentador.</p>
+<pre><span class="k">MUSICA=trilha.mp3 AV_CX=1110 ./compor.sh --formato canto --aspecto 9x16 \
+  --cena c.mp4 --avatar a.mp4 --saida reel.mp4 --ss 8 --t 10 --nome "ANA | INEMA"</span></pre>
+  </div></div>
+</div></section>
+
+<section id="roadmap"><div class="wrap">
+  <span class="chip">Roadmap</span>
+  <h2>Hacia dónde va</h2>
+  <p class="sub">Lo que existe hoy y lo que viene después.</p>
+  <div class="phase"><div class="tag">Hecho</div><div class="d"><strong>14 formatos + compor.sh</strong><span>7 en 16:9, 7 en 9:16, con ejemplos reales y catálogo en FORMATOS.md (en portugués).</span></div></div>
+  <div class="phase"><div class="tag">Próximo</div><div class="d"><strong>Usarlos en los proyectos de video</strong><span>Los motores de video de INEMA (eventosextremospub, explicavideos, docflow) pasan a aceptar el nombre del formato.</span></div></div>
+  <div class="phase"><div class="tag">Después</div><div class="d"><strong>Más formatos</strong><span>Los nuevos layouts entran al catálogo con nombre, ejemplo y comando, en los dos aspectos cuando tenga sentido.</span></div></div>
+</div></section>
+
+<footer>
+  <div class="wrap">
+    <div class="pill">ffmpeg</div><div class="pill">Python</div><div class="pill">bash</div>
+    <p style="margin-top:18px">formatos-layout · catálogo de formatos de video con avatar ·
+      <a href="https://github.com/inematds/formatos-layout">inematds/formatos-layout</a> ·
+      <a href="https://inema.club">INEMA.CLUB</a></p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var KEY='formatos-layout-theme';
+    var b=document.body, t=document.getElementById('themeToggle');
+    if(localStorage.getItem(KEY)==='light'){ b.classList.add('light'); t.textContent='☀️'; }
+    t.addEventListener('click',function(){
+      var light=b.classList.toggle('light');
+      t.textContent=light?'☀️':'🌙';
+      localStorage.setItem(KEY, light?'light':'dark');
+    });
+  })();
+  // un video a la vez
+  document.querySelectorAll('video').forEach(function(v){ v.addEventListener('play',function(){ document.querySelectorAll('video').forEach(function(o){ if(o!==v) o.pause(); }); }); });
+</script>
+</body>
+</html>
