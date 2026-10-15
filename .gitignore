@@ -1,4 +1,4 @@
-demos/
+/demos/
 .cache/
 .log/
 *.envio-v3.json
