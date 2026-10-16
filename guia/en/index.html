@@ -178,7 +178,7 @@
   <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="../assets/banner-grade-en.jpg" alt="The formats: Largo (Wide), Canto (Corner), Bolha (Bubble), Telejornal (Newscast), Apresentador (Presenter), Documentário (Documentary)" loading="lazy" style="width:100%;display:block"></figure>
   <div class="grid g3">
     <div class="card"><h3>🏷️ Fixed name</h3><p>Largo (Wide), Canto (Corner), Bolha (Bubble), Telejornal (Newscast), Dividido (Split), Apresentador (Presenter), Documentário (Documentary), Aula (Lesson), Faixa (Strip), Viral, Metade (Half), Invertido (Inverted), Pergunta (Question), Empilhado (Stacked) and Personagem (Character). The name becomes the request.</p></div>
-    <div class="card"><h3>🎞️ Real example</h3><p>Each format has a 10 to 16 second clip built from a real video (Amazon wildfires, 10/15/2026).</p></div>
+    <div class="card"><h3>🎞️ Real example</h3><p>Each format has a 10 to 16 second clip built from a real video, each one with a different event from the <a href="https://www.youtube.com/@eventosextremos-inema/shorts" target="_blank" rel="noopener">Eventos Extremos shorts</a> (Itaipu, typhoon, El Niño, hail, wildfires, storm alert in southern Brazil).</p></div>
     <div class="card"><h3>⚙️ One command</h3><p><code>compor.sh</code> builds any format with ffmpeg alone, no GPU and no need to record the avatar again.</p></div>
   </div>
 </div></section>
@@ -316,8 +316,8 @@ cena.mp4  avatar.mp4</pre></div>
   <div class="step"><div class="b">2</div><div>
     <h3>Pick the format by name</h3>
     <p>See the list above or <code>FORMATOS.md</code> (in Portuguese). The name goes in lowercase and without accents.</p>
-<pre><span class="c"># 16x9: largo canto bolha telejornal dividido apresentador documentario</span>
-<span class="c"># 9x16: faixa canto bolha telejornal apresentador viral documentario</span>
+<pre><span class="c"># 16x9: largo canto bolha telejornal dividido apresentador documentario aula</span>
+<span class="c"># 9x16: faixa canto bolha telejornal apresentador viral documentario metade invertido pergunta empilhado personagem</span>
 <span class="k">./compor.sh --help</span></pre>
   </div></div>
 
